@@ -5,27 +5,18 @@
 # Data Developer: Carlos Castilla -- ccastilla.1@tecnun.es
 #########################################################################################
 
-
-getCHEMBLID<-function(DrugName){
-  
+getDrugBankID<-function(DrugName){
   DrugName<-toupper(DrugName)
   load("./singleDrugSynonymsTabulatesDH_IDcreated.RData")
   iix<-agrep(DrugName,singleDrugSynonyms$Drug_synonyms, max=3, ignore.case = T)
-  ChemblID<-singleDrugSynonyms$CHEMBL[iix]
-  if(length(ChemblID>0)){
-    return(unique(ChemblID))
+  DB_ID<- singleDrugSynonyms$DB[iix]
+  if(length(DB_ID>0)){
+    return(unique(DB_ID))
   }
-  if(length(ChemblID)==0){
-    stop("No CHEMBL ID found")
+  if(length(DB_ID)==0){
+    stop("No DrugBank ID found")
   }
 }
-
-
-
-
-
-
-
 
 
 
