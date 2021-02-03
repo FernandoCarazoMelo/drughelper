@@ -37,7 +37,7 @@ for(j in 1:nrow(singleDrugSynonyms)){
 
 singleDrugSynonyms$DrugHelper<-paste0("DH0",1:nrow(singleDrugSynonyms)) 
 
-# save(singleDrugSynonyms, file="./singleDrugSynonyms2.RData")
+# save(singleDrugSynonyms, file="./singleDrugSynonymsTabulatesDH_IDcreated.RData")
 
 # Añadir masc y minusculas
 #quitar y poner guiones y espacios
