@@ -10,11 +10,13 @@ source("./codeJG/getCHEMBLID.R")
 source("./codeJG/getDrugBankID.R")
 
 
-DrugName<-"bacitracin"
+DrugName<-"ba ci tr ac in "
 #DrugName<-"DB07604"
 
+#QUITAR ESPACIOS 
+DrugName <- gsub("[[:blank:]]", "", DrugName)
 Chem<-getCHEMBLID(DrugName)
-
+######
 DB<-getDrugBankID(Chem[1])
 
 data.frame<-singleDrugSynonyms$Drug[1:110]

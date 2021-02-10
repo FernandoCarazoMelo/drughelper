@@ -10,7 +10,7 @@ getCHEMBLID<-function(DrugName){
   
   DrugName<-toupper(DrugName)
   load("./data/input/2020-12-17version/singleDrugSynonymsTabulatesDH_IDcreated.RData")
-  iix<-agrep(DrugName,singleDrugSynonyms$Drug_synonyms, max=3, ignore.case = T)
+  iix<-grep(DrugName,singleDrugSynonyms$Drug_synonyms)
   ChemblID<-singleDrugSynonyms$CHEMBL[iix]
   if(length(ChemblID>0)){
     return(unique(ChemblID))
