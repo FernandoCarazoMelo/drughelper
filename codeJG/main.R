@@ -10,11 +10,14 @@ source("./codeJG/getCHEMBLID.R")
 source("./codeJG/getDrugBankID.R")
 
 
-DrugName<-"ba ci tr ac in "
+DrugName<-"BACITRACIN"
 #DrugName<-"DB07604"
 
 #QUITAR ESPACIOS 
+#sub solo quita el primer espacio del string, gsub quita todos a la vez
 DrugName <- gsub("[[:blank:]]", "", DrugName)
+DrugName <- gsub("-", "", DrugName)
+
 Chem<-getCHEMBLID(DrugName)
 ######
 DB<-getDrugBankID(Chem[1])
