@@ -10,7 +10,7 @@ DrugHelper<-function(data.frame, type){
   DrugName<-toupper(data.frame$data.frame)
   
   
-  load("./singleDrugSynonymsTabulatesDH_IDcreated.RData")
+  load("./data/input/2020-12-17version/singleDrugSynonymsTabulatesDH_IDcreated.RData")
   iidx<-sapply(DrugName, FUN=function(X){return(grep(X, singleDrugSynonyms$Drug_synonyms))})
   
   if(type=="ALL"){
