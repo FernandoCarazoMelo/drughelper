@@ -4,7 +4,7 @@
 # Conceptual Design: Fernando Carazo -- fcarazo@tecnun.es
 # Data Developer: Carlos Castilla -- ccastilla.1@tecnun.es
 #########################################################################################
-load("./singleDrugSynonymsTabulatesDH_IDcreated.RData")
+load("./data/input/2020-12-17version/singleDrugSynonymsTabulatesDH_IDcreated.RData")
 source("./codeDrugHelperFunction/DrugHelper.R")
 source("./codeDrugHelperFunction/getCHEMBLID.R")
 source("./codeDrugHelperFunction/getDrugBankID.R")
