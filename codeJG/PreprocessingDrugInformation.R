@@ -5,8 +5,11 @@
 # Data Developer: Carlos Castilla -- ccastilla.1@tecnun.es
 #########################################################################################
 
-load("./singleDrugSynonyms.RData")
-load("./VICC_singleDrugSynonyms.RData")
+load("./data/input/2020-12-17version/singleDrugSynonyms.RData")
+load("./data/input/2020-12-17version/VICC_singleDrugSynonyms.RData")
+
+
+
 singleDrugSynonyms$Drug_synonyms<-paste0(singleDrugSynonyms$Drug_synonyms, ";;;", singleDrugSynonyms$Drug)
 singleDrugSynonyms$CHEMBL<-"NA"
 
