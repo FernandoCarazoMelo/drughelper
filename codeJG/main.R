@@ -5,13 +5,13 @@
 # Data Developer: Carlos Castilla -- ccastilla.1@tecnun.es
 #########################################################################################
 load("./data/input/2020-12-17version/singleDrugSynonymsTabulatesDH_IDcreated.RData")
-source("./codeDrugHelperFunction/DrugHelper.R")
-source("./codeDrugHelperFunction/getCHEMBLID.R")
-source("./codeDrugHelperFunction/getDrugBankID.R")
+source("./codeJG/DrugHelper.R")
+source("./codeJG/getCHEMBLID.R")
+source("./codeJG/getDrugBankID.R")
 
 
-DrugName<-"NEOMYCIN SULFATE"
-DrugName<-"DB07604"
+DrugName<-"bacitracin"
+#DrugName<-"DB07604"
 
 Chem<-getCHEMBLID(DrugName)
 
