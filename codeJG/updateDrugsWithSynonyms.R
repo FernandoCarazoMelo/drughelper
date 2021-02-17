@@ -34,14 +34,14 @@ if (fAlreadyComputed == 0){
   
   # Get all unique drugs from 'Gene_Info' table
   
-  allDrugsDS <- NULL #variable de momento vac�a 
+  allDrugsDS <- NULL #variable de momento vac?a 
   for (i in 1:length(drugsDS)){
     print(i)
     currDrugs <- drugsDS[i]
     currDrugs <- unlist(strsplit(currDrugs,"\\, ")) #separar string donde haya \\,
     currDrugs <- unique(currDrugs)#Elimina los duplicados
     currDrugs <- toupper(currDrugs)#Mayusculas
-    allDrugsDS <- c(allDrugsDS, currDrugs)
+    allDrugsDS <- c(allDrugsDS, currDrugs) #añade el medicamento actual al vector que tenemos en este momento, (se añaden de uno en uno)
   }
   currDrugs <- unique(allDrugsDS)
 
@@ -50,13 +50,13 @@ if (fAlreadyComputed == 0){
     for (i in 1:length(currDrugs)){
       print(paste0("i = ", as.character(i)))
       currDrug <- currDrugs[i]
-      synonyms <- getPubChemSynonyms(currDrug)
+      synonyms <- getPubChemSynonyms(currDrug)#coge los sinonimos de la función
       synonyms <- toupper(synonyms)#Mayusculas
       synonyms <- unique(synonyms) #Elimina los duplicados
-      singleDrugSynonyms <- rbind(singleDrugSynonyms, c("",""))
-      singleDrugSynonyms$Drug[ind] <- currDrug
-      singleDrugSynonyms$Drug_synonyms[ind] <- paste(synonyms, collapse=';;;') 
-      ind <- ind + 1
+      singleDrugSynonyms <- rbind(singleDrugSynonyms, c("","")) #junta las filas
+      singleDrugSynonyms$Drug[ind] <- currDrug #añade el medicamento actual
+      singleDrugSynonyms$Drug_synonyms[ind] <- paste(synonyms, collapse=';;;')#coge todos los sinonimos de un medicamento y los pega en la tabla separados por ;;; 
+      ind <- ind + 1 #actualiza iteración del bucle
     }
   }
   
