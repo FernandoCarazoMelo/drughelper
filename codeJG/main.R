@@ -13,7 +13,7 @@ source("./codeJG/getDrugBankID.R")
 DrugName<-"BACITRACINA"
 DrugName<-"DB07604"
 
-#Quitar espacion y signos de puntuación
+#Quitar espacio y signos de puntuación
 #sub solo quita el primer espacio del string, gsub quita todos a la vez
 DrugName <- gsub("[[:blank:]]", "", DrugName)
 DrugName <- gsub("[^[:alnum:]]", "", DrugName)
