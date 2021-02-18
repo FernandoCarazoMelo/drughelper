@@ -11,15 +11,16 @@ source("./codeJG/getDrugBankID.R")
 
 
 DrugName<-"(4E)-4-AMI   NOHEX-4-ENOIC ACID"
-DrugName<-"DB07604"
+#DrugName<-"DB07604"
 
 #Quitar espacio y signos de puntuación
 #sub solo quita el primer espacio del string, gsub quita todos a la vez
 DrugName <- gsub("[^[:alnum:]]", " ", DrugName)
 DrugName <- gsub("[[:blank:]]", "", DrugName)
 
-synonyms <- singleDrugSynonyms$Drug_synonyms(match(DrugName, singleDrugSynonyms$Drug_Synonims_format))
+synonyms <- singleDrugSynonyms$Drug_synonyms(match(DrugName, singleDrugSynonyms$Drug_Synonyms_format))
 
+DH <- getDrugHelperID(DrugName)
 Chem<-getCHEMBLID(DrugName)
 
 DB<-getDrugBankID(Chem[1])
