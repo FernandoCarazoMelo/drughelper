@@ -34,7 +34,7 @@ if (fAlreadyComputed == 0){
   
   # Get all unique drugs from 'Gene_Info' table
   
-  allDrugsDS <- NULL #variable de momento vac?a 
+  allDrugsDS <- NULL #variable de momento vacia 
   for (i in 1:length(drugsDS)){
     print(i)
     currDrugs <- drugsDS[i]
