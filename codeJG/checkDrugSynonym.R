@@ -31,3 +31,4 @@ checkDrugSynonym <- function(drugVector) {
   return(daf)
   
 }
+checkDrugSynonym(c("2-PROPYLPENTANOIC ACID", "lorelco"))

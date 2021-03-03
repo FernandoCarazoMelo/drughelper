@@ -26,43 +26,28 @@ fAlreadyComputed <- 1
 if (fAlreadyComputed == 0){
    #load("./GeneInfo.RData")
   load("./data/input/2020-12-17version/Gene_Info_Updated_singleDrugSynonyms.RData")
-  
+  listDrugs = singleDrugSynonyms$Drug #listdrugs = lista de drogas a las que damos sinonimos
   # Xabi update drugs table
-  #load("GeneInfoUpdated.RData")
-  singleDrugSynonyms <- data.frame(Drug="",Drug_synonyms="") #crea dataframe en blanco
-  drugsDS <- singleDrugSynonyms$Drug #Saca la columna de la tabla
+  
+  singleDrugSynonyms <- as.data.frame(matrix(NA, ncol = 2, nrow = length(listDrugs))) #crea dataframe en blanco
+  colnames(singleDrugSynonyms) <- c("Drug", "Drug_synonyms")
+  drugsDH <- listDrugs 
   
   # Get all unique drugs from 'Gene_Info' table
-  
-  allDrugsDS <- NULL #variable de momento vacía 
-  for (i in 1:length(drugsDS)){
-    print(i)
-    currDrugs <- drugsDS[i]
-    currDrugs <- unlist(strsplit(currDrugs,"\\, ")) #separar string donde haya \\,
-    currDrugs <- unique(currDrugs)#Elimina los duplicados
-    currDrugs <- toupper(currDrugs)#Mayusculas
-    allDrugsDS <- c(allDrugsDS, currDrugs) #añade el medicamento actual al vector que tenemos en este momento, (se añaden de uno en uno)
-  }
-  currDrugs <- unique(allDrugsDS)
 
-  ind <- 1
-  if(length(currDrugs) > 0){
-    for (i in 1:length(currDrugs)){
+
+  if(length(drugsDH) > 0){
+    for (i in 1:length(drugsDH)){
       print(paste0("i = ", as.character(i)))
-      currDrug <- currDrugs[i]
+      currDrug <- drugsDH[i]
       synonyms <- getPubChemSynonyms(currDrug)#coge los sinonimos de la función
       synonyms <- toupper(synonyms)#Mayusculas
       synonyms <- unique(synonyms) #Elimina los duplicados
-      singleDrugSynonyms <- rbind(singleDrugSynonyms, c("","")) #junta las filas
-      singleDrugSynonyms$Drug[ind] <- currDrug #añade el medicamento actual
-      singleDrugSynonyms$Drug_synonyms[ind] <- paste(synonyms, collapse=';;;')#coge todos los sinonimos de un medicamento y los pega en la tabla separados por ;;; 
-      ind <- ind + 1 #actualiza iteración del bucle
+      singleDrugSynonyms$Drug[i] <- currDrug #añade el medicamento actual
+      singleDrugSynonyms$Drug_synonyms[i] <- paste(synonyms, collapse=';;;')#coge todos los sinonimos de un medicamento y los pega en la tabla separados por ;;; 
     }
   }
   
-  rownames(singleDrugSynonyms) <- NULL #Nombres de filas vacios
-  emptyRows <- which(rowSums((singleDrugSynonyms=="")*1) == 2)
-  singleDrugSynonyms <- singleDrugSynonyms[-emptyRows,] #elimina las filas que estan vacias
   rownames(singleDrugSynonyms) <- singleDrugSynonyms[,1] #nombra a las filas con el nombre del medicamento de cada fila
   
   # save(singleDrugSynonyms, file = "./Gene_Info_singleDrugSynonyms.RData") # 6278 2 (6278 unique drugs in Gene_Info table)
@@ -73,4 +58,4 @@ if (fAlreadyComputed == 0){
 # Gene_Info drug table with single drug synonyms
 # load("./Gene_Info_singleDrugSynonyms.RData")
 # Xabi updated drugs table
-load("./data/input/2020-12-17version/Gene_Info_Updated_singleDrugSynonyms.RData")
+#load("./data/input/2020-12-17version/Gene_Info_Updated_singleDrugSynonyms.RData")
