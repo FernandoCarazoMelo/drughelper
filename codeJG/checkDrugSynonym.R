@@ -1,6 +1,6 @@
 #Función checkDrugSynonym
 
-#source("./codeJG/formattingDrugName.R")
+#source("./codeJG/formattingDrugName.R") #en un futuro hacer el formateo llamando a la funcion
 
 checkDrugSynonym <- function(drugVector) {
   
@@ -31,4 +31,3 @@ checkDrugSynonym <- function(drugVector) {
   return(daf)
   
 }
-checkDrugSynonym(c("2-PROPYLPENTANOIC ACID", "lorelco"))
