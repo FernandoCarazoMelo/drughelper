@@ -4,7 +4,8 @@
 
 checkDrugSynonym <- function(drugVector) {
   
-  # check input class
+  # CHECK INPUT CLASS (DEBE SER "CHARACTER")
+  
   if (class(drugVector) != "character") {
     drugVector <- as.character(drugVector)
     warning("coercing drugVector to character.")
