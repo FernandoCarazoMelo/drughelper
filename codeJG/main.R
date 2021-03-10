@@ -20,6 +20,8 @@ DrugName<-"cyclosporin"
 synonyms <- formattingDrugName(DrugName)
 
 
+
+
 ###CREACION DE LA FUNCIÓN
 
 load("./data/input/2020-12-17version/singleDrugSynonymsTableUpdated.RData")
@@ -29,6 +31,9 @@ source("./codeJG/checkDrugSynonym.R")
 drugVector = c("BACi TRACINa", "NA  dH", "CYCL  OSPORIN A")
 
 dataframex <- checkDrugSynonym(drugVector)
+
+
+
 
 
 
