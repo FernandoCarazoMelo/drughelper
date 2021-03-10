@@ -10,6 +10,7 @@ Info about code and datasets of DrugHelper project
 
 > **DATA:**  
   Last data file version: "singleDrugSynonymsTableUpdated.RData"
+  Data with drugs and synonyms from ChEMBl: "datosChembl.RData"
   
  >> **Columns:**  
       Drug: Name of each chosen drug  
