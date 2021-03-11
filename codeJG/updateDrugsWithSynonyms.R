@@ -25,37 +25,33 @@
 fAlreadyComputed <- 1
 if (fAlreadyComputed == 0){
    #load("./GeneInfo.RData")
-  load("./data/input/2020-12-17version/Gene_Info_Updated_singleDrugSynonyms.RData")
-  listDrugs = singleDrugSynonyms$Drug #listdrugs = lista de drogas a las que damos sinonimos
-  # Xabi update drugs table
+  #load("./data/input/2020-12-17version/Gene_Info_Updated_singleDrugSynonymsChembl.RData")
+  #listDrugs = singleDrugSynonymsChembl$Drug #listdrugs = lista de drogas a las que damos sinonimos
+  load("./data/input/2020-12-17version/datosChembl.RData")
+  listDrugs = datosChembl$Drug
+  # Xabi update Drugs table
   
-  singleDrugSynonyms <- as.data.frame(matrix(NA, ncol = 2, nrow = length(listDrugs))) #crea dataframe en blanco
-  colnames(singleDrugSynonyms) <- c("Drug", "Drug_synonyms")
+  singleDrugSynonymsChembl <- as.data.frame(matrix(NA, ncol = 2, nrow = length(listDrugs))) #crea dataframe en blanco
+  colnames(singleDrugSynonymsChembl) <- c("Drug", "Drug_synonyms")
   drugsDH <- listDrugs 
   
   # Get all unique drugs from 'Gene_Info' table
 
-
+source("./codeJG/getPubChemSynonyms.R")
   if(length(drugsDH) > 0){
-    for (i in 1:length(drugsDH)){
+    for (i in 4185:length(drugsDH)){
       print(paste0("i = ", as.character(i)))
       currDrug <- drugsDH[i]
       synonyms <- getPubChemSynonyms(currDrug)#coge los sinonimos de la función
       synonyms <- toupper(synonyms)#Mayusculas
       synonyms <- unique(synonyms) #Elimina los duplicados
-      singleDrugSynonyms$Drug[i] <- currDrug #añade el medicamento actual
-      singleDrugSynonyms$Drug_synonyms[i] <- paste(synonyms, collapse=';;;')#coge todos los sinonimos de un medicamento y los pega en la tabla separados por ;;; 
+      singleDrugSynonymsChembl$Drug[i] <- currDrug #añade el medicamento actual
+      singleDrugSynonymsChembl$Drug_synonyms[i] <- paste(synonyms, collapse=';;;')#coge todos los sinonimos de un medicamento y los pega en la tabla separados por ;;; 
     }
   }
   
-  rownames(singleDrugSynonyms) <- singleDrugSynonyms[,1] #nombra a las filas con el nombre del medicamento de cada fila
+  rownames(singleDrugSynonymsChembl) <- singleDrugSynonymsChembl[,1] #nombra a las filas con el nombre del medicamento de cada fila
   
-  # save(singleDrugSynonyms, file = "./Gene_Info_singleDrugSynonyms.RData") # 6278 2 (6278 unique drugs in Gene_Info table)
-  save(singleDrugSynonyms, file = "./Gene_Info_Updated_singleDrugSynonyms.RData") 
+  # save(singleDrugSynonymsChembl, file = "./Gene_Info_singleDrugSynonymsChembl.RData") # 6278 2 (6278 unique drugs in Gene_Info table)
+  save(singleDrugSynonymsChembl, file = "./data/input/2020-12-17version/singleDrugSynonymsChembl.RData") 
 }
-
-
-# Gene_Info drug table with single drug synonyms
-# load("./Gene_Info_singleDrugSynonyms.RData")
-# Xabi updated drugs table
-#load("./data/input/2020-12-17version/Gene_Info_Updated_singleDrugSynonyms.RData")
