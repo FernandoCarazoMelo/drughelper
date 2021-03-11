@@ -52,3 +52,18 @@ type<-"ALL" #("DB", "CHEMBL", "DH", "ALL")
 
 Result<-DrugHelper(data.frame, type)
 
+
+
+
+##MERGE datosChembl y singleDrugSynonymsChmebl
+
+load("./data/input/2020-12-17version/datosChembl.RData")
+load("./data/input/2020-12-17version/singleDrugSynonymsChembl.RData")
+
+for (i in 1:nrow(datosChembl)){
+  datosChembl$synonyms[i] <- toupper(datosChembl$synonyms[i])
+}
+
+datosChembl$synonymsChemble <- singleDrugSynonymsChembl$Drug_synonyms
+
+cbind(datosChembl$synonyms, datosChembl$synonymsChemble, sep=";;;")
