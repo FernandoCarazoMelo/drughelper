@@ -1,3 +1,4 @@
+# This function returns the synonyms from a given drug name
 
  formattingDrugName <- function(DrugName) {
   
