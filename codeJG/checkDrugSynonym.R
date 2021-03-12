@@ -1,4 +1,7 @@
-#Función checkDrugSynonym
+# Función checkDrugSynonym
+# Este script realiza la tarea principal del proyecto, dado un vector de
+# sinonimos por el usuario, devuelve un dataframe con informacion corregida
+# de ellos
 
 #source("./codeJG/formattingDrugName.R") #en un futuro hacer el formateo llamando a la funcion
 
@@ -25,9 +28,9 @@ checkDrugSynonym <- function(drugVector) {
   
     
     daf[i, 1] <- drugVector[i]
-    daf[i, 2] <- singleDrugSynonyms$DrugHelper[grep(drugVector[i], singleDrugSynonyms$Drug_Synonyms_format)[1]]#el 1 tambien hay que mejorarlo
-    daf[i, 3] <- singleDrugSynonyms$Drug[grep(drugVector[i], singleDrugSynonyms$Drug_Synonyms_format)[1]]#el 1 tambien hay que mejorarlo
-
+    daf[i, 2] <- datosChemblv2formatted$DrugHelper[grep(drugVector[i], datosChemblv2formatted$synonyms_formatted)[1]]#el 1 tambien hay que mejorarlo
+    daf[i, 3] <- datosChemblv2formatted$Drug[grep(drugVector[i], datosChemblv2formatted$synonyms_formatted)[1]]#el 1 tambien hay que mejorarlo
+    
   }
   return(daf)
   
