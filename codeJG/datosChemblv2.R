@@ -31,8 +31,20 @@ for (k in 1:nrow(datosChembl)){
   
 }
 
-save(datosChembl, file = "./data/input/2020-12-17version/datosChemblv2.RData")
+datosChemblv2 <- datosChembl
+save(datosChemblv2, file = "./data/input/2020-12-17version/datosChemblv2.RData")
+
 
 # A continuacion el objetivo es llamar a la funcion ya
 # creada para que formatee la columna de sinonimos
+# (quitar espacios y signos de puntuación)
+
+source("./codeJG/formattingSynonymsTable.R")
+updateTable(datosChemblv2)
+#guarda un archivo RData dentro de la función
+
+
+#Introducimos otras columnas como ids u otra información:
+
+datosChemblv2formatted$DrugHelper <- paste0("DH0",1:nrow(datosChemblv2formatted)) 
 
