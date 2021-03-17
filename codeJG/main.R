@@ -52,3 +52,13 @@ type<-"ALL" #("DB", "CHEMBL", "DH", "ALL")
 
 Result<-DrugHelper(data.frame, type)
 
+
+
+
+#Cosas que voy haciendo en la consola
+
+#añadir columna del codigo de identificaion de drughelper
+#datosChemblv2formatted$DrugHelperid<-paste0("DH0",1:nrow(datosChemblv2formatted)) 
+
+#ordenar columnas de la tabla
+#datosChemblv2formatted = subset (datosChemblv2formatted, select=c(8,2,1,4,5,6,7,3))
