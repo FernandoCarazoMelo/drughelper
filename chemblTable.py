@@ -45,3 +45,9 @@ for i in range(len(data['synonyms'])):
     d = []
     
 data.to_csv('datosChembl.tsv', sep = '\t', index=False)
+
+
+
+
+
+
