@@ -1,16 +1,20 @@
-# En este script juntamos los sinonimos de la base de datos 
-# de Chembl con los sinonimos de la base de datos de Pubchem
+# En este script leemos el archivo generado en python y 
+# juntamos los sinonimos de la base de datos de Chembl
+# con los sinonimos de la base de datos de Pubchem
 # relativos a los farmacos de Chembl
 
+library(readr)
+datosChembl <- read_delim("datosChembl.tsv", "\t", escape_double = FALSE, trim_ws = TRUE)
+save(datosChembl, file = "./data/input/2020-12-17version/datosChembl.RData") 
 
-load("./data/input/2020-12-17version/datosChembl.RData")
+#load("./data/input/2020-12-17version/datosChembl.RData")
 load("./data/input/2020-12-17version/singleDrugSynonymsChembl.RData")
 
 for (i in 1:nrow(datosChembl)){
   datosChembl$synonyms[i] <- toupper(datosChembl$synonyms[i])
 }
 
-datosChembl$synonymsChemble <- singleDrugSynonymsChembl$Drug_synonyms
+datosChembl$synonymsChembl <- singleDrugSynonymsChembl$Drug_synonyms
 
 
 for (j in 1:nrow(datosChembl)){
@@ -22,6 +26,7 @@ for (j in 1:nrow(datosChembl)){
 
 datosChembl <- datosChembl[,-7]
 
+#UNIQUE SYNONYMS
 #vaux = vector auxiliar
 for (k in 1:nrow(datosChembl)){
   
@@ -31,20 +36,16 @@ for (k in 1:nrow(datosChembl)){
   
 }
 
-datosChemblv2 <- datosChembl
-save(datosChemblv2, file = "./data/input/2020-12-17version/datosChemblv2.RData")
-
-
 # A continuacion el objetivo es llamar a la funcion ya
 # creada para que formatee la columna de sinonimos
 # (quitar espacios y signos de puntuación)
 
 source("./codeJG/formattingSynonymsTable.R")
-updateTable(datosChemblv2)
-#guarda un archivo RData dentro de la función
-
+datosChembl <- updateTable(datosChembl)
 
 #Introducimos otras columnas como ids u otra información:
 
-datosChemblv2formatted$DrugHelper <- paste0("DH0",1:nrow(datosChemblv2formatted)) 
+datosChembl$DrugHelper <- paste0("DH0",1:nrow(datosChembl)) 
 
+datosChemblv2 = subset(datosChembl, select = c(8,2,1,4,5,6,7,3))
+save(datosChemblv2, file = "./data/input/2020-12-17version/datosChemblv2.RData")
