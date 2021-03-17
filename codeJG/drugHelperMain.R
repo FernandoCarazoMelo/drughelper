@@ -46,4 +46,4 @@ datosChembl <- updateTable(datosChembl)
 datosChembl$DrugHelper <- paste0("DH0",1:nrow(datosChembl)) 
 
 datosChembl = subset(datosChembl, select = c(8,2,1,4,5,6,7,3))
-save(datosChembl, file = "./data/input/2020-12-17version/datosChemblv2.RData")
+save(datosChembl, file = "./data/input/2020-12-17version/datosChembl.RData")
