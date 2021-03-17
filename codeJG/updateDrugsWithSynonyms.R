@@ -39,7 +39,7 @@ if (fAlreadyComputed == 0){
 
 source("./codeJG/getPubChemSynonyms.R")
   if(length(drugsDH) > 0){
-    for (i in 4185:length(drugsDH)){
+    for (i in 1:length(drugsDH)){
       print(paste0("i = ", as.character(i)))
       currDrug <- drugsDH[i]
       synonyms <- getPubChemSynonyms(currDrug)#coge los sinonimos de la función
