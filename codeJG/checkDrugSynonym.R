@@ -28,8 +28,8 @@ checkDrugSynonym <- function(drugVector) {
   
     
     daf[i, 1] <- drugVector[i]
-    daf[i, 2] <- datosChemblv2formatted$DrugHelper[grep(drugVector[i], datosChemblv2formatted$synonyms_formatted)[1]]#el 1 tambien hay que mejorarlo
-    daf[i, 3] <- datosChemblv2formatted$Drug[grep(drugVector[i], datosChemblv2formatted$synonyms_formatted)[1]]#el 1 tambien hay que mejorarlo
+    daf[i, 2] <- datosChembl$DrugHelper[grep(drugVector[i], datosChembl$synonyms_formatted)[1]]
+    daf[i, 3] <- datosChembl$Drug[grep(drugVector[i], datosChembl$synonyms_formatted)[1]]
     
   }
   return(daf)
