@@ -19,13 +19,8 @@
 
 
 
-
-# Gene_Info table with single drug synonyms
-# Compute a hash table to find associations between single Drug and its Drugs synonyms in Gene_Info data (DS2 drugs)
 fAlreadyComputed <- 1
 if (fAlreadyComputed == 0){
-   #load("./GeneInfo.RData")
-  #load("./data/input/2020-12-17version/Gene_Info_Updated_singleDrugSynonymsChembl.RData")
   #listDrugs = singleDrugSynonymsChembl$Drug #listdrugs = lista de drogas a las que damos sinonimos
   load("./data/input/2020-12-17version/datosChembl.RData")
   listDrugs = datosChembl$Drug
@@ -42,16 +37,15 @@ source("./codeJG/getPubChemSynonyms.R")
     for (i in 1:length(drugsDH)){
       print(paste0("i = ", as.character(i)))
       currDrug <- drugsDH[i]
-      synonyms <- getPubChemSynonyms(currDrug)#coge los sinonimos de la función
-      synonyms <- toupper(synonyms)#Mayusculas
-      synonyms <- unique(synonyms) #Elimina los duplicados
-      singleDrugSynonymsChembl$Drug[i] <- currDrug #añade el medicamento actual
-      singleDrugSynonymsChembl$Drug_synonyms[i] <- paste(synonyms, collapse=';;;')#coge todos los sinonimos de un medicamento y los pega en la tabla separados por ;;; 
+      synonyms <- getPubChemSynonyms(currDrug)
+      synonyms <- toupper(synonyms)
+      synonyms <- unique(synonyms)
+      singleDrugSynonymsChembl$Drug[i] <- currDrug
+      singleDrugSynonymsChembl$Drug_synonyms[i] <- paste(synonyms, collapse=';;;') 
     }
   }
   
-  rownames(singleDrugSynonymsChembl) <- singleDrugSynonymsChembl[,1] #nombra a las filas con el nombre del medicamento de cada fila
+  rownames(singleDrugSynonymsChembl) <- singleDrugSynonymsChembl[,1]
   
-  # save(singleDrugSynonymsChembl, file = "./Gene_Info_singleDrugSynonymsChembl.RData") # 6278 2 (6278 unique drugs in Gene_Info table)
   save(singleDrugSynonymsChembl, file = "./data/input/2020-12-17version/singleDrugSynonymsChembl.RData") 
 }
