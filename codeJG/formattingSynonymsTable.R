@@ -1,13 +1,11 @@
-updateTable <- function(datosChemblv2){
-  load("./data/input/2020-12-17version/datosChemblv2.RData")
+updateTable <- function(datosChembl){
   
-  
-  for (i in 1:nrow(datosChemblv2)){
-    aux <- gsub("[[:blank:]]", "", datosChemblv2$synonyms[i])
-    datosChemblv2$synonyms_formatted[i] <- gsub("[^[:alnum:];]", "", aux)
+  for (i in 1:nrow(datosChembl)){
+    aux <- gsub("[[:blank:]]", "", datosChembl$synonyms[i])
+    datosChembl$synonyms_formatted[i] <- gsub("[^[:alnum:];]", "", aux)
   }
   
-  View(datosChemblv2)
-  datosChemblv2formatted <- datosChemblv2
-  save(datosChemblv2formatted, file = "./data/input/2020-12-17version/datosChemblv2formatted.RData")
+  
+  return(datosChembl)
+  
 }
