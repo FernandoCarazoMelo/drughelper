@@ -9,10 +9,10 @@ output:
 Info about code and datasets of DrugHelper project  
 
 > **DATA:**  
-  Last data file version: "singleDrugSynonymsTableUpdated.RData"
-  Data with drugs and synonyms from ChEMBl: "datosChembl.RData"
+  (1) Last data file version: "singleDrugSynonymsTableUpdated.RData"
+  (2) Data with drugs and synonyms from ChEMBl: "datosChembl.RData"
   
- >> **Columns:**  
+ >> **Columns(1):**  
       Drug: Name of each chosen drug  
       Drug_synonyms: All drug synonyms for each drug  
       CHEMBL: Identification code from ChEMBL database  
@@ -20,6 +20,16 @@ Info about code and datasets of DrugHelper project
       DrugHelper: Identification code created for the project
       Drug_synonyms_format: Drug synonyms without punctuation marks or spaces
     
+ >> **Columns(2)**  
+      Drug: Name of each chosen drug  
+      DrugHelperid: Identification code created for the project  
+      Chemblid: Identification code from ChEMBL database  
+      formula: molecular formula for each drug  
+      maxphase: Clinical phase each drug is in  
+      synonyms: All drug synonyms for each drug  
+      DrugSynonymsformatted: Drug synonyms without punctuation marks or spaces  
+      canonical: Canonical formula/structure of each drug  
+      
 > **CODE:**  
 
 >> **Scripts:**  
