@@ -1,4 +1,4 @@
-# Función checkDrugSynonym
+# Funcion checkDrugSynonym
 # Este script realiza la tarea principal del proyecto, dado un vector de
 # sinonimos por el usuario, devuelve un dataframe con informacion corregida
 # de ellos
