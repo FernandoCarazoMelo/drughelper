@@ -27,15 +27,32 @@ Info about code and datasets of DrugHelper project
       formula: molecular formula for each drug  
       maxphase: Clinical phase each drug is in  
       synonyms: All drug synonyms for each drug  
-      DrugSynonymsformatted: Drug synonyms without punctuation marks or spaces  
+      synonymsformatted: Drug synonyms without punctuation marks or spaces  
       canonical: Canonical formula/structure of each drug  
       
 > **CODE:**  
 
->> **Scripts:**  
+>> **FOLDERS:**  
+  generateDB: Every necessary script for running Drughelper function  
+  notUsed: Other useful scripts for the creation of the project, but without direct use.  
+  tempfuncts: Temporal functions to check punctual issues  
+  
+>> **SCRIPTS**  
+  __generateDB folder:__  
+  chemblTable.py: A python script in which a dataframe with Chembl synonyms was created  
+  datosChembl.tsv: chemblTable exported to R  
+  __notUsed folder:__  
+  DrugHelper.R: raw function for the creation of the dataframe  
+  PreprocessingDrugInformation.R: A script in which the first version of "SingleDrugSynonyms" table was created  
+  __tempfuncts folder:__  
   getCHEMBLID.R: A function which collects the ID from CHEMBL database  
   getDrugBankID.R: A function which collects the ID from DrugBank database  
-  getPubChemSynonyms.R: A function which collects all synonyms for each drug    from PubChem database  
-  PreprocessingDrugInformation.R: A script in which the first version of "SingleDrugSynonyms" table was created  
+  main.R: script in which punctual issues are perform and temporal-function calling is done  
+  formattingDrugName: A function which corrects a bad input for a drug name and returns the synonyms of the corrected name drug  
+  __out of folders:__  
+  drugHelperMain.R: Main script of the proyect where the dataframe is being builded  
+  checkDrugSynonym: Main function of the proyect which the user will work with  
+  formattingSynonymsTable: Function which create a new column with standarized synonyms  
+  getPubChemSynonyms.R: A function which collects all synonyms for each drug from PubChem database  
   updateDrugsWithSynonyms.R: A script in which raw list of synonyms was included in the table  
-  updateSingleDrugSynonymsTable.R: A script in which text from drug synonyms was processed and joined to the table
+  
