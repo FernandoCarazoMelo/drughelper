@@ -3,7 +3,7 @@
 # sinonimos por el usuario, devuelve un dataframe con informacion corregida
 # de ellos
 
-#source("./codeJG/formattingDrugName.R") #en un futuro hacer el formateo llamando a la funcion
+source("./codeJG/formattingDrugName.R") 
 
 checkDrugSynonym <- function(drugVector) {
   
@@ -21,15 +21,14 @@ checkDrugSynonym <- function(drugVector) {
                         
   for (i in 1:length(drugVector)) {
     
-    DrugName <- toupper(drugVector[i])
-    DrugName <- gsub("[^[:alnum:]]", " ", DrugName)
-    DrugName <- gsub("[[:blank:]]", "", DrugName)
+    DrugName <- formattingDrugName(drugVector[i])
+    
     drugVector[i] <- DrugName[1] #estas dos ultimas lineas tengo que mejorarlas, eliminando las duplicidades, de momento las dejo asi porque no lo he hecho
   
     
     daf[i, 1] <- drugVector[i]
-    daf[i, 2] <- datosChembl$DrugHelper[grep(drugVector[i], datosChembl$synonyms_formatted)[1]]
-    daf[i, 3] <- datosChembl$Drug[grep(drugVector[i], datosChembl$synonyms_formatted)[1]]
+    daf[i, 2] <- datosChembl$DrugHelper[agrep(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1)[1]]
+    daf[i, 3] <- datosChembl$Drug[agrep(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1)[1]]
     
   }
   return(daf)
