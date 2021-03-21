@@ -3,11 +3,11 @@ Type: Package
 Title: Drug identification and drug name correction with automatic
 actualisations
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Author: Javier García
+Maintainer: The package maintainer <a905125@alumni.unav.es>
 Description: DrugHelper is a function which identifies and corrects
-the names a set of drugs between clinical phases 1-4 clinical and
-that periodically actualize the available drugs and its synonyms.
+the names a set of drugs between clinical phases 1-4 and that
+periodically actualize the available drugs and its synonyms.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
