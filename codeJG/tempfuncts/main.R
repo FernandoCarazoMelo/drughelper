@@ -22,13 +22,13 @@ synonyms <- formattingDrugName(DrugName)
 
 ###CREACION DE LA FUNCION
 
-load("./data/input/2020-12-17version/singleDrugSynonymsTableUpdated.RData")
+load("./data/input/2020-12-17version/datosChembl.RData")
 
 source("./codeJG/checkDrugSynonym.R")
 
-drugVector = c("BACi TRACINa", "NA  dH", "CYCL  OSPORIN A")
+drugVector = c("ponatinib", "ibuprofwno", "CYClOSPORIm A", "morfina")
 
-dataframex <- checkDrugSynonym(drugVector)
+checkDrugSynonym(drugVector)
 
 
 
