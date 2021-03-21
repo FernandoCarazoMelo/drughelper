@@ -16,19 +16,29 @@ checkDrugSynonym <- function(drugVector) {
   
   #DATAFRAME
   daf <- data.frame(x = character(),
+                    Approved = character(),
                     DrugHelperID = character(),
                     Suggested.Synonym = character())
                         
   for (i in 1:length(drugVector)) {
     
+    daf[i, 1] <- drugVector[i]
+    
     DrugName <- formattingDrugName(drugVector[i])
     
-    drugVector[i] <- DrugName[1] #estas dos ultimas lineas tengo que mejorarlas, eliminando las duplicidades, de momento las dejo asi porque no lo he hecho
-  
+    drugVector[i] <- DrugName[1] #estas dos ultimas lineas tengo que mejorarlas,
+    #si encuentra mas de una coincidencia, devuleve la primera, debería
+    #devolver la que mas se parezca, hacer prueba con "morphine"
     
-    daf[i, 1] <- drugVector[i]
-    daf[i, 2] <- datosChembl$DrugHelper[agrep(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1)[1]]
-    daf[i, 3] <- datosChembl$Drug[agrep(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1)[1]]
+    logicVector <- agrepl(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1)
+    
+    if (TRUE %in% logicVector){
+      daf[i, 2] <- TRUE
+    } else{
+      daf[i, 2] <- FALSE
+    }
+    daf[i, 3] <- datosChembl$DrugHelper[agrep(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1)[1]]
+    daf[i, 4] <- datosChembl$Drug[agrep(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1)[1]]
     
   }
   return(daf)
