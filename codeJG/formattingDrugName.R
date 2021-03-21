@@ -1,4 +1,4 @@
-# This function corrects and capitalize the names of a given vector of drugs.
+# This function corrects and capitalizes the names of a given vector of drugs.
 
  formattingDrugName <- function(DrugName) {
   
