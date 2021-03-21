@@ -41,6 +41,10 @@ Info about code and datasets of DrugHelper project
   __generateDB folder:__  
   chemblTable.py: A python script in which a dataframe with Chembl synonyms was created  
   datosChembl.tsv: chemblTable exported to R  
+  drugHelperMain.R: Main script of the proyect where the dataframe is being builded  
+ formattingSynonymsTable: Function which create a new column with standarized synonyms  
+ getPubChemSynonyms.R: A function which collects all synonyms for each drug from PubChem database  
+  updateDrugsWithSynonyms.R: A script in which raw list of synonyms was included in the table  
   __notUsed folder:__  
   DrugHelper.R: raw function for the creation of the dataframe  
   PreprocessingDrugInformation.R: A script in which the first version of "SingleDrugSynonyms" table was created  
@@ -48,11 +52,7 @@ Info about code and datasets of DrugHelper project
   getCHEMBLID.R: A function which collects the ID from CHEMBL database  
   getDrugBankID.R: A function which collects the ID from DrugBank database  
   main.R: script in which punctual issues are perform and temporal-function calling is done  
-  formattingDrugName: A function which corrects a bad input for a drug name and returns the synonyms of the corrected name drug  
   __out of folders:__  
-  drugHelperMain.R: Main script of the proyect where the dataframe is being builded  
   checkDrugSynonym: Main function of the proyect which the user will work with  
-  formattingSynonymsTable: Function which create a new column with standarized synonyms  
-  getPubChemSynonyms.R: A function which collects all synonyms for each drug from PubChem database  
-  updateDrugsWithSynonyms.R: A script in which raw list of synonyms was included in the table  
+  formattingDrugName: A function which corrects a bad input for a drug name and returns the synonyms of the corrected name drug  
   
