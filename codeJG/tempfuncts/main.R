@@ -26,7 +26,7 @@ load("./data/input/2020-12-17version/datosChembl.RData")
 
 source("./codeJG/checkDrugSynonym.R")
 
-drugVector = c("ponatinib", "ibuprofwno", "CYClOSPORIm A", "morfina")
+drugVector = c("ponatinib", "ibuprofwno", "CYClOSPORIm A", "morfin")
 
 checkDrugSynonym(drugVector)
 
