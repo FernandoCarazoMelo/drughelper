@@ -26,15 +26,15 @@ checkDrugSynonym <- function(drugVector) {
     
     DrugName <- formattingDrugName(drugVector[i])
     
-    drugVector[i] <- DrugName[1] #estas dos ultimas lineas tengo que mejorarlas,
-    #si encuentra mas de una coincidencia, devuleve la primera, debería
+    drugVector[i] <- DrugName #estas dos ultimas lineas tengo que mejorarlas,
+    #si encuentra mas de una coincidencia, devuelve la primera, debería
     #devolver la que mas se parezca, hacer prueba con "morphine"
     
     logicVector <- agrepl(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1)
     
     if (TRUE %in% logicVector){
       daf[i, 2] <- TRUE
-    } else{
+    } else {
       daf[i, 2] <- FALSE
     }
     daf[i, 3] <- datosChembl$DrugHelper[agrep(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1)[1]]
