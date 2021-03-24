@@ -26,10 +26,11 @@ load("./data/input/2020-12-17version/datosChembl.RData")
 
 source("./codeJG/checkDrugSynonym.R")
 
-drugVector = c("ponatinib", "ibuprofwno", "CYClOSPORIm A", "morfin")
+drugVector = c("ponatinib", "ibuprofeno", "CYClOSPORIN A", "MORPHINE")
 
 checkDrugSynonym(drugVector)
 
+#View(datosChembl[agrep("MORPHINE", datosChembl$synonyms_formatted, max.distance = 1), ])
 
 
 
