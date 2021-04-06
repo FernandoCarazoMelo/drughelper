@@ -26,7 +26,7 @@ load("./data/input/2020-12-17version/datosChembl.RData")
 
 source("./codeJG/checkDrugSynonym.R")
 
-drugVector = c("ibuprofeno", "CYClOSPORIN A", "MORPHINE")
+drugVector = c("ibu PRO fen", "CYClOS PORIN A", "MOR PHINE", "lidocaina", "novocain", "espididol")
 
 checkDrugSynonym(drugVector)
 
