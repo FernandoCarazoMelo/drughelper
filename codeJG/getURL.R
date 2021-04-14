@@ -19,7 +19,3 @@ function ()
 #                         stringsAsFactors = FALSE, fill = TRUE, quote = "")
 
 #datosChembl <- read.delim("C:/Users/javie/OneDrive/Escritorio/drughelper/codeJG/generateDB/datosChembl.rar")
-
-temp = downloadAbsentFile("https://docs.google.com/document/d/1fzX2MJVFJlhAL6V1RmArNn1RmvQIFKnIG0id0gjLI7I/edit?usp=sharing", oD = input_directory)
-proteinsDf <- read.table(temp, sep = "\t", header = TRUE,
-                         stringsAsFactors = FALSE, fill = TRUE, quote = "")
