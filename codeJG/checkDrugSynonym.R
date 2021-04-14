@@ -4,9 +4,11 @@
 # de ellos
 
 source("./codeJG/formattingDrugName.R") 
+source("./codeJG/downloadAbsentFile.R") 
 
 checkDrugSynonym <- function(drugVector) {
   
+  downloadAbsentFile()
 
   #DATAFRAME
   daf <- data.frame(x = character(),
@@ -46,8 +48,8 @@ checkDrugSynonym <- function(drugVector) {
     tempDF <- unique(tempDF)
     
     if (daf[i, 2] == TRUE) {
-      daf[i, 3] <- datosChembl$DrugHelper[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
-      daf[i, 4] <- datosChembl$Drug[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
+      daf[i, 3] <- auxTable$DrugHelper[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
+      daf[i, 4] <- auxTable$Drug[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
     }
   }
   return(daf)
