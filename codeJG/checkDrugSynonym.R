@@ -23,7 +23,7 @@ checkDrugSynonym <- function(drugVector) {
           DrugName <- formattingDrugName(drugVector[i])
           
           drugVector[i] <- DrugName #estas dos ultimas lineas tengo que mejorarlas,
-          #si encuentra mas de una coincidencia, devuelve la primera, debería
+          #si encuentra mas de una coincidencia, devuelve la primera, deberia
           #devolver la que mas se parezca, hacer prueba con "morphine"
           
           logicVector <- grepl(drugVector[i], datosChembl$synonyms_formatted)
