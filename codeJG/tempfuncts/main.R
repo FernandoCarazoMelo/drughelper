@@ -42,14 +42,3 @@ Chem<-getCHEMBLID(DrugName)
 DB<-getDrugBankID(Chem[1])
 
 
-data.frame<-singleDrugSynonyms$Drug[1:110]
-
-type<-"ALL" #("DB", "CHEMBL", "DH", "ALL")
-
-data.frame<-singleDrugSynonyms$Drug[1:110]
-
-type<-"ALL" #("DB", "CHEMBL", "DH", "ALL")
-
-Result<-DrugHelper(data.frame, type)
-
-
