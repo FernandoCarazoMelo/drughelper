@@ -5,8 +5,8 @@
 #' @export
 #' @example checkDrugSynonym("Volatinib","lidocaine","morphine")
 
-source("./codeJG/formattingDrugName.R")
-source("./codeJG/downloadAbsentFile.R")
+# source("./R/formattingDrugName.R")
+# source("./R/downloadAbsentFile.R")
 
 checkDrugSynonym <- function(drugVector) {
 
