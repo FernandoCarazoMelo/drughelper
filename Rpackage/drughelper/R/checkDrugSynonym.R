@@ -3,12 +3,15 @@
 #' @param A string vector of undefined length, with Drug names
 #' @return A dataframe containing: the input drug name, if it is approved or not, drughelper ID and a proper-more used synonym.
 #' @export
-#' @example checkDrugSynonym("Volatinib","lidocaine","morphine")
+#' @example checkDrugSynonym(c("ibuPROfen", "CYClOSPORIN A", "MORPHINE", "lidocaina", "novocain"))
 
-# source("./R/formattingDrugName.R")
-# source("./R/downloadAbsentFile.R")
+
 
 checkDrugSynonym <- function(drugVector) {
+
+  load("../../data/input/2020-12-17version/datosChembl.RData")
+  source("./R/formattingDrugName.R")
+  source("./R/downloadAbsentFile.R")
 
   downloadAbsentFile()
 
@@ -50,8 +53,8 @@ checkDrugSynonym <- function(drugVector) {
     tempDF <- unique(tempDF)
 
     if (daf[i, 2] == TRUE) {
-      daf[i, 3] <- auxTable$DrugHelper[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
-      daf[i, 4] <- auxTable$Drug[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
+      daf[i, 3] = datosChembl$DrugHelper[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
+      daf[i, 4] = datosChembl$Drug[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
     }
   }
   return(daf)
