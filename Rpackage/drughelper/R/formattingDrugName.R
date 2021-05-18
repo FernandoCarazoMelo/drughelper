@@ -1,8 +1,8 @@
 #' @title Normalization of drug names
 #' @description  This function corrects and capitalizes the names of a given vector of drugs.
-#' @param A string with the name of the drug to be normalized
+#' @param DrugName A string with the name of the drug to be normalized
+#' @examples formattingDrugName("morphine")
 #' @export
-#' @example formattingDrugName("morphine")
 
  formattingDrugName <- function(DrugName) {
 

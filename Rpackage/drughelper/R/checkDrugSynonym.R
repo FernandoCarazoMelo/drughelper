@@ -1,19 +1,20 @@
 #' @title Check for drug synonyms
 #' @description Given an input of drug synonyms, check if those drugs are approved and find a proper more used synonym
-#' @param A string vector of undefined length, with Drug names
+#' @param drugVector A string vector of undefined length, with Drug names
 #' @return A dataframe containing: the input drug name, if it is approved or not, drughelper ID and a proper-more used synonym.
+#' @examples
+#' checkDrugSynonym(c("ibuPROfen", "CYClOSPORIN A", "MORPHINE", "lidocaina"))
 #' @export
-#' @example checkDrugSynonym(c("ibuPROfen", "CYClOSPORIN A", "MORPHINE", "lidocaina", "novocain"))
-
 
 
 checkDrugSynonym <- function(drugVector) {
 
-  load("../../data/input/2020-12-17version/datosChembl.RData")
   source("./R/formattingDrugName.R")
   source("./R/downloadAbsentFile.R")
 
-  downloadAbsentFile()
+  downloadAbsentFile(dir = tempdir())
+  datosChembl <- read.csv(paste0(tempdir(),"\\datosChembl.tsv"), sep = "\t")
+
 
   #DATAFRAME
   daf <- data.frame(x = character(),
@@ -51,6 +52,9 @@ checkDrugSynonym <- function(drugVector) {
     }
 
     tempDF <- unique(tempDF)
+
+
+    a <- rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]
 
     if (daf[i, 2] == TRUE) {
       daf[i, 3] = datosChembl$DrugHelper[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
