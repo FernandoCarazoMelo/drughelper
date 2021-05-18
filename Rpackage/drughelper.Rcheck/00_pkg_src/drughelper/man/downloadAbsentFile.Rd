@@ -4,7 +4,7 @@
 \alias{downloadAbsentFile}
 \title{Download data from Chembl}
 \usage{
-downloadAbsentFile()
+downloadAbsentFile(dir = tempdir())
 }
 \description{
 If it has not been downloaded yet, downloads data of drugs
