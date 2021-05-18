@@ -7,8 +7,11 @@
 formattingDrugName(DrugName)
 }
 \arguments{
-\item{A}{string with the name of the drug to be normalized}
+\item{DrugName}{A string with the name of the drug to be normalized}
 }
 \description{
 This function corrects and capitalizes the names of a given vector of drugs.
+}
+\examples{
+formattingDrugName("morphine")
 }

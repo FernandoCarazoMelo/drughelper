@@ -7,11 +7,14 @@
 checkDrugSynonym(drugVector)
 }
 \arguments{
-\item{A}{string vector of undefined length, with Drug names}
+\item{drugVector}{A string vector of undefined length, with Drug names}
 }
 \value{
 A dataframe containing: the input drug name, if it is approved or not, drughelper ID and a proper-more used synonym.
 }
 \description{
 Given an input of drug synonyms, check if those drugs are approved and find a proper more used synonym
+}
+\examples{
+checkDrugSynonym(c("ibuPROfen", "CYClOSPORIN A", "MORPHINE", "lidocaina"))
 }
