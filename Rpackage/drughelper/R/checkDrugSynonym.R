@@ -9,12 +9,8 @@
 
 checkDrugSynonym <- function(drugVector) {
 
-  source("./R/formattingDrugName.R")
-  source("./R/downloadAbsentFile.R")
-
-  downloadAbsentFile(dir = tempdir())
-  datosChembl <- read.csv(paste0(tempdir(),"\\datosChembl.tsv"), sep = "\t")
-
+  source("./R/drugHelperMain.R")
+  addandsort()
 
   #DATAFRAME
   daf <- data.frame(x = character(),
