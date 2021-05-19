@@ -11,6 +11,7 @@ checkDrugSynonym <- function(drugVector) {
 
   source("./R/drugHelperMain.R")
   addandsort()
+  load("./data/datosChembl.RData")
 
   #DATAFRAME
   daf <- data.frame(x = character(),
