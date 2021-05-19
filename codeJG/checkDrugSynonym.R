@@ -1,10 +1,3 @@
-#' @title Check for drug synonyms
-#' @description Given an input of drug synonyms, check if those drugs are approved and find a proper more used synonym
-#' @param A string vector of undefined length, with Drug names
-#' @return A dataframe containing: the input drug name, if it is approved or not, drughelper ID and a proper-more used synonym.
-#' @export
-#' @example checkDrugSynonym("Volatinib","lidocaine","morphine")
-
 source("./codeJG/formattingDrugName.R") 
 source("./codeJG/downloadAbsentFile.R") 
 
