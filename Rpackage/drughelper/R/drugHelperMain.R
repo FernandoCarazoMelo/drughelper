@@ -53,6 +53,6 @@ addandsort <- function() {
   #Ordenamos las columnas
 
   datosChembl = subset(datosChembl, select = c(8,2,1,4,5,6,7,3))
-  save(datosChembl, file = "./data/datosChembl.RData")
-
+  # save(datosChembl, file = "https://raw.githubusercontent.com/jaaaviergarcia/drughelper/main/datosChembl.RData")
+  # guardar esta tabla en github mediante codigo (esta guardada manualmente)
   }
