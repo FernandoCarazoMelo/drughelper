@@ -9,34 +9,25 @@
 
 checkDrugSynonym <- function(drugVector) {
 
-  source("./R/drugHelperMain.R")
-  addandsort()
-  load("./data/datosChembl.RData")
+  #downloadAbsentFile(dir = tempdir())
+  load("./data/datosChembl.RData") #tenemos que hacer load del tempdir
 
   #DATAFRAME
   daf <- data.frame(x = character(),
                     Approved = character(),
                     DrugHelperID = character(),
                     Suggested.Synonym = character())
+  browser()
 
   for (i in 1:length(drugVector)) {
 
-          daf[i, 1] <- drugVector[i]
+    daf[i, 1] <- drugVector[i]
 
-          DrugName <- formattingDrugName(drugVector[i])
+    drugVector[i] <- formattingDrugName(drugVector[i])
 
-          drugVector[i] <- DrugName #estas dos ultimas lineas tengo que mejorarlas,
-          #si encuentra mas de una coincidencia, devuelve la primera, deberia
-          #devolver la que mas se parezca, hacer prueba con "morphine"
+    logicVector <- grepl(drugVector[i], datosChembl$synonyms_formatted)
 
-          logicVector <- grepl(drugVector[i], datosChembl$synonyms_formatted)
-
-          if (TRUE %in% logicVector){
-            daf[i, 2] <- TRUE
-          } else {
-            daf[i, 2] <- FALSE
-          }
-
+    ifelse(TRUE %in% logicVector, daf[i, 2] <- TRUE, daf[i, 2] <- FALSE)
 
     auxVectorsynonyms <- datosChembl$Drug[agrep(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1)]
     auxTable <-datosChembl[agrep(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1), ]
@@ -50,12 +41,9 @@ checkDrugSynonym <- function(drugVector) {
 
     tempDF <- unique(tempDF)
 
-
-    a <- rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]
-
     if (daf[i, 2] == TRUE) {
-      daf[i, 3] = datosChembl$DrugHelper[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
-      daf[i, 4] = datosChembl$Drug[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
+      daf[i, 3] <- datosChembl$DrugHelper[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
+      daf[i, 4] <- datosChembl$Drug[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
     }
   }
   return(daf)
