@@ -1,7 +1,10 @@
 updateTable <- function(datosChembl){
 
+  library(mgsub)
   for (i in 1:nrow(datosChembl)){
-    datosChembl$synonyms_formatted[i] <- mgsub(datosChembl$synonyms[i], c("[[:blank:]]", ""), c("[^[:alnum:];]", ""))
+
+    aux <- gsub("[[:blank:]]", "", datosChembl$synonyms[i])
+    datosChembl$synonyms_formatted[i] <- gsub("[^[:alnum:];]", "", aux)
 
   }
   return(datosChembl)
