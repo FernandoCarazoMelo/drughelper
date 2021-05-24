@@ -9,7 +9,9 @@ addandsort <- function() {
   source("./R/downloadAbsentFile.R")
 
   downloadAbsentFile(dir = tempdir())
-  datosChembl <- read.csv(paste0(tempdir(),"\\datosChembl.tsv"), sep = "\t")
+  dir <-  paste0(tempdir(),"\\datosChembl.RData")
+  datosChembl <- load(file = dir)
+  data("datosChembl")
 
   load("../../data/input/2020-12-17version/singleDrugSynonymsChembl.RData")
 
