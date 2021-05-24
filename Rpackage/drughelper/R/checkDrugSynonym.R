@@ -16,36 +16,61 @@ checkDrugSynonym <- function(drugVector) {
   daf <- data.frame(x = character(),
                     Approved = character(),
                     DrugHelperID = character(),
-                    Suggested.Synonym = character())
-  browser()
+                    Suggested.Synonym = character(),
+                    Matching = character())
 
-  for (i in 1:length(drugVector)) {
+    for (i in 1:length(drugVector)) {
 
-    daf[i, 1] <- drugVector[i]
+      daf[i, 1] <- drugVector[i]
 
-    drugVector[i] <- formattingDrugName(drugVector[i])
+      drug <- formattingDrugName(drugVector[i])
 
-    logicVector <- grepl(drugVector[i], datosChembl$synonyms_formatted)
+      drugVector[i] <- drug
 
-    ifelse(TRUE %in% logicVector, daf[i, 2] <- TRUE, daf[i, 2] <- FALSE)
+      logicVector <- grepl(drug, datosChembl$synonyms_formatted, fixed = TRUE)
+      # logicVector <- grepl(drugVector[i], datosChembl$synonyms_formatted, fixed = TRUE)
 
-    auxVectorsynonyms <- datosChembl$Drug[agrep(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1)]
-    auxTable <-datosChembl[agrep(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1), ]
+      ifelse(TRUE %in% logicVector, daf[i, 2] <- TRUE, daf[i, 2] <- FALSE)
 
-    tempDF = data.frame(Index = integer(), Synonyms = character())
-    for (j in 1:length(auxVectorsynonyms)){
+      auxVectorsynonyms <- datosChembl$Drug[grep(drugVector[i], datosChembl$synonyms_formatted)]
+      auxTable <-datosChembl[grep(drugVector[i], datosChembl$synonyms_formatted), ]
 
-      list = unique(strsplit(auxTable$synonyms_formatted[j], split=";;;"))
-      tempDF = rbind(tempDF, data.frame(Index = rownames(auxTable)[j], Synonyms = unlist(list)))
-    }
+      tempDF = data.frame(Id = character(), Synonyms = character())
 
-    tempDF <- unique(tempDF)
+      for (j in 1:length(auxVectorsynonyms)){
 
-    if (daf[i, 2] == TRUE) {
-      daf[i, 3] <- datosChembl$DrugHelper[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
-      daf[i, 4] <- datosChembl$Drug[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
-    }
+        list = unique(strsplit(auxTable$synonyms_formatted[j], split=";;;"))
+        tempDF = rbind(tempDF, data.frame(Id = auxTable$DrugHelper[j], Synonyms = unlist(list)))
+      }
+
+      tempDF <- unique(tempDF)
+
+      if (daf[i, 2] == TRUE) {
+
+        if (drug %in% auxTable$Drug) {
+
+          daf[i, 3] <- auxTable$DrugHelper[auxTable$Drug == drug][1]
+          daf[i, 4] <- drug
+          daf[i, 5] <- "Exact match"
+
+        } else if (!is.na(tempDF$Id[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]])) {
+
+          aux_dh <- tempDF$Id[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)][1]
+
+          daf[i, 3] <- aux_dh
+          daf[i, 4] <- datosChembl$Drug[grep(tempDF$Id[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)][1], datosChembl$DrugHelper)][1]
+          daf[i, 5] <- "Exact match"
+
+        } else {
+
+          daf[i, 3] <- tempDF$Id[agrep(drugVector[i], tempDF$Synonyms)][1]
+          daf[i, 4] <- tempDF$Synonyms[agrep(drugVector[i], tempDF$Synonyms, max.distance = 1)][1]
+          daf[i, 5] <- "Approximate match"
+
+          }
+      }
   }
-  return(daf)
 
+
+  return(daf)
 }
