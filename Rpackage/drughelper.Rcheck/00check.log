@@ -1,12 +1,20 @@
 * using log directory 'C:/Users/javie/OneDrive/Escritorio/drughelper/Rpackage/drughelper.Rcheck'
-* using R version 4.0.2 (2020-06-22)
+* using R version 4.1.0 (2021-05-18)
 * using platform: x86_64-w64-mingw32 (64-bit)
 * using session charset: ISO8859-1
-* using options '--no-manual --as-cran'
+* using option '--as-cran'
 * checking for file 'drughelper/DESCRIPTION' ... OK
 * checking extension type ... Package
 * this is package 'drughelper' version '0.1.0'
 * package encoding: UTF-8
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: 'Fernando Carazo <fcarazo@tecnun.es>'
+
+New submission
+
+Non-FOSS package license (What license is it under?)
+
+Size of tarball: 14257404 bytes
 * checking package namespace information ... OK
 * checking package dependencies ... OK
 * checking if this is a source package ... OK
@@ -14,78 +22,8 @@
 * checking for executable files ... OK
 * checking for hidden files and directories ... OK
 * checking for portable file names ... OK
-* checking serialization versions ... OK
-* checking whether package 'drughelper' can be installed ... OK
-* checking installed package size ... OK
-* checking package directory ... OK
-* checking for future file timestamps ... OK
-* checking DESCRIPTION meta-information ... WARNING
-Non-standard license specification:
-  What license is it under?
-Standardizable: FALSE
-* checking top-level files ... NOTE
-Non-standard file/directory found at top level:
-  'datosChembl.tsv'
-* checking for left-over files ... OK
-* checking index information ... OK
-* checking package subdirectories ... OK
-* checking R files for non-ASCII characters ... OK
-* checking R files for syntax errors ... OK
-* checking whether the package can be loaded ... OK
-* checking whether the package can be loaded with stated dependencies ... OK
-* checking whether the package can be unloaded cleanly ... OK
-* checking whether the namespace can be loaded with stated dependencies ... OK
-* checking whether the namespace can be unloaded cleanly ... OK
-* checking loading without being on the library search path ... OK
-* checking dependencies in R code ... OK
-* checking S3 generic/method consistency ... OK
-* checking replacement functions ... OK
-* checking foreign function calls ... OK
-* checking R code for possible problems ... NOTE
-checkDrugSynonym: no visible global function definition for 'read.csv'
-downloadAbsentFile: no visible global function definition for
-  'download.file'
-Undefined global functions or variables:
-  download.file read.csv
-Consider adding
-  importFrom("utils", "download.file", "read.csv")
-to your NAMESPACE file.
-* checking Rd files ... OK
-* checking Rd metadata ... OK
-* checking Rd line widths ... OK
-* checking Rd cross-references ... OK
-* checking for missing documentation entries ... OK
-* checking for code/documentation mismatches ... OK
-* checking Rd \usage sections ... WARNING
-Undocumented arguments in documentation object 'downloadAbsentFile'
-  'dir'
-
-Functions with \usage entries need to have the appropriate \alias
-entries, and all their arguments documented.
-The \usage entries must correspond to syntactically valid R code.
-See chapter 'Writing R documentation files' in the 'Writing R
-Extensions' manual.
-* checking Rd contents ... OK
-* checking for unstated dependencies in examples ... OK
-* checking examples ... ERROR
-Running examples in 'drughelper-Ex.R' failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: checkDrugSynonym
-> ### Title: Check for drug synonyms
-> ### Aliases: checkDrugSynonym
-> 
-> ### ** Examples
-> 
-> checkDrugSynonym(c("ibuPROfen", "CYClOSPORIN A", "MORPHINE", "lidocaina"))
-Warning in file(filename, "r", encoding = encoding) :
-  cannot open file './R/formattingDrugName.R': No such file or directory
-Error in file(filename, "r", encoding = encoding) : 
-  cannot open the connection
-Calls: checkDrugSynonym -> source -> file
-Execution halted
-* checking for non-standard things in the check directory ... OK
-* checking for detritus in the temp directory ... OK
+* checking whether package 'drughelper' can be installed ... ERROR
+Installation failed.
+See 'C:/Users/javie/OneDrive/Escritorio/drughelper/Rpackage/drughelper.Rcheck/00install.out' for details.
 * DONE
-Status: 1 ERROR, 2 WARNINGs, 2 NOTEs
+Status: 1 ERROR, 1 NOTE

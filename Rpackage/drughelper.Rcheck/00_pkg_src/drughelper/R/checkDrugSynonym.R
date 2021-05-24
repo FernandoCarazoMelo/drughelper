@@ -9,12 +9,8 @@
 
 checkDrugSynonym <- function(drugVector) {
 
-  source("./R/formattingDrugName.R")
-  source("./R/downloadAbsentFile.R")
-
-  downloadAbsentFile(dir = tempdir())
-  datosChembl <- read.csv(paste0(tempdir(),"\\datosChembl.tsv"), sep = "\t")
-
+  #downloadAbsentFile(dir = tempdir())
+  load("./data/datosChembl.RData") #tenemos que hacer load del tempdir
 
   #DATAFRAME
   daf <- data.frame(x = character(),
@@ -22,42 +18,46 @@ checkDrugSynonym <- function(drugVector) {
                     DrugHelperID = character(),
                     Suggested.Synonym = character())
 
-  for (i in 1:length(drugVector)) {
+    for (i in 1:length(drugVector)) {
 
-          daf[i, 1] <- drugVector[i]
+    daf[i, 1] <- drugVector[i]
 
-          DrugName <- formattingDrugName(drugVector[i])
+    drug <- formattingDrugName(drugVector[i])
 
-          drugVector[i] <- DrugName #estas dos ultimas lineas tengo que mejorarlas,
-          #si encuentra mas de una coincidencia, devuelve la primera, deberia
-          #devolver la que mas se parezca, hacer prueba con "morphine"
+    drugVector[i] <- drug
 
-          logicVector <- grepl(drugVector[i], datosChembl$synonyms_formatted)
+    logicVector <- grepl(drugVector[i], datosChembl$synonyms_formatted)
 
-          if (TRUE %in% logicVector){
-            daf[i, 2] <- TRUE
-          } else {
-            daf[i, 2] <- FALSE
-          }
-
+    ifelse(TRUE %in% logicVector, daf[i, 2] <- TRUE, daf[i, 2] <- FALSE)
 
     auxVectorsynonyms <- datosChembl$Drug[agrep(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1)]
     auxTable <-datosChembl[agrep(drugVector[i], datosChembl$synonyms_formatted, max.distance = 1), ]
 
-    tempDF = data.frame(Index = integer(), Synonyms = character())
+    tempDF = data.frame(Id = character(), Synonyms = character())
+
     for (j in 1:length(auxVectorsynonyms)){
 
       list = unique(strsplit(auxTable$synonyms_formatted[j], split=";;;"))
-      tempDF = rbind(tempDF, data.frame(Index = rownames(auxTable)[j], Synonyms = unlist(list)))
+      tempDF = rbind(tempDF, data.frame(Id = auxTable$DrugHelper[j], Synonyms = unlist(list)))
     }
 
     tempDF <- unique(tempDF)
 
     if (daf[i, 2] == TRUE) {
-      daf[i, 3] = datosChembl$DrugHelper[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
-      daf[i, 4] = datosChembl$Drug[rownames(datosChembl) == tempDF$Index[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
+
+      if (drug %in% auxTable$Drug){
+
+        daf[i, 3] <- auxTable$DrugHelper[auxTable$Drug == drug][1]
+        daf[i, 4] <- drug
+
+      } else {
+
+        daf[i, 3] <- datosChembl$DrugHelper[datosChembl$DrugHelper == tempDF$Id[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
+        daf[i, 4] <- datosChembl$Drug[datosChembl$DrugHelper == tempDF$Id[grep(paste0("^",drugVector[i],"$"), tempDF$Synonyms)[1]]]
+      }
+
     }
+
   }
   return(daf)
-
 }
