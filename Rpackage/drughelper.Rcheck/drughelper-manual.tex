@@ -1,0 +1,97 @@
+\nonstopmode{}
+\documentclass[a4paper]{book}
+\usepackage[times,inconsolata,hyper]{Rd}
+\usepackage{makeidx}
+\usepackage[utf8]{inputenc} % @SET ENCODING@
+% \usepackage{graphicx} % @USE GRAPHICX@
+\makeindex{}
+\begin{document}
+\chapter*{}
+\begin{center}
+{\textbf{\huge Package `drughelper'}}
+\par\bigskip{\large \today}
+\end{center}
+\inputencoding{utf8}
+\ifthenelse{\boolean{Rd@use@hyper}}{\hypersetup{pdftitle = {drughelper: Drug Identification and Drug Name Correction with Automatic Actualisations}}}{}\begin{description}
+\raggedright{}
+\item[Type]\AsIs{Package}
+\item[Title]\AsIs{Drug Identification and Drug Name Correction with Automatic
+Actualisations}
+\item[Version]\AsIs{0.1.0}
+\item[Author]\AsIs{Javier Garcia}
+\item[Maintainer]\AsIs{Fernando Carazo }\email{fcarazo@tecnun.es}\AsIs{}
+\item[Description]\AsIs{Package DrugHelper is a function which identifies and corrects the names a set of drugs between clinical phases 1-4 and that periodically actualize the available drugs and its synonyms.}
+\item[License]\AsIs{MIT + file LICENSE}
+\item[Encoding]\AsIs{UTF-8}
+\item[LazyData]\AsIs{true}
+\item[RoxygenNote]\AsIs{7.1.1}
+\item[NeedsCompilation]\AsIs{no}
+\item[Depends]\AsIs{R (>= 3.5.0)}
+\end{description}
+\Rdcontents{\R{} topics documented:}
+\inputencoding{utf8}
+\HeaderA{checkDrugSynonym}{Check for drug synonyms}{checkDrugSynonym}
+%
+\begin{Description}\relax
+Given an input of drug synonyms, check if those drugs are approved and find a proper more used synonym
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+checkDrugSynonym(drugVector)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{drugVector}] A string vector of undefined length, with Drug names
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A dataframe containing: the input drug name, if it is approved or not, drughelper ID and a proper-more used synonym.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+checkDrugSynonym(c("Procaine", "Bacitracin", "Pac-1", "Furazosin", "Embelin", "NotADrug"))
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{downloadAbsentFile}{Download data from Chembl}{downloadAbsentFile}
+%
+\begin{Description}\relax
+If it has not been downloaded yet, downloads data of drugs
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+downloadAbsentFile(dir = tempdir())
+\end{verbatim}
+\end{Usage}
+\inputencoding{utf8}
+\HeaderA{formattingDrugName}{Normalization of drug names}{formattingDrugName}
+%
+\begin{Description}\relax
+This function corrects and capitalizes the names of a given vector of drugs.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+formattingDrugName(DrugName)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{DrugName}] A string with the name of the drug to be normalized
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Examples}
+\begin{ExampleCode}
+formattingDrugName("morphine")
+\end{ExampleCode}
+\end{Examples}
+\printindex{}
+\end{document}

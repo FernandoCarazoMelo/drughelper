@@ -16,5 +16,5 @@ A dataframe containing: the input drug name, if it is approved or not, drughelpe
 Given an input of drug synonyms, check if those drugs are approved and find a proper more used synonym
 }
 \examples{
-checkDrugSynonym(c("ibuPROfen", "CYClOSPORIN A", "MORPHINE", "lidocaina"))
+checkDrugSynonym(c("Procaine", "Bacitracin", "Pac-1", "Furazosin", "Embelin", "NotADrug"))
 }

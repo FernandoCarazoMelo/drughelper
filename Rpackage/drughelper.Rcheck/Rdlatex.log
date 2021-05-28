@@ -1,0 +1,177 @@
+Hmm ... looks like a package
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18>
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2020/04/10 v1.4m Standard LaTeX document class
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk10.clo))
+(c:/Program Files/R/R-4.1.0/share/texmf/tex/latex/Rd.sty
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty)
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.st
+y) (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/bm.sty)
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/alltt.sty)
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty
+) (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty)
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty)
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty)
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/times.sty))
+ (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
+) (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backen
+d-pdftex.def)
+No file Rd2.aux.
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1pcr.fd)name = pcrr8t, rootname = pcrr8t, pointsize = 
+mktexmf: empty or non-existent rootfile!
+
+kpathsea: Running mktexmf pcrr8t.mf
+
+The command name is C:\Users\javie\AppData\Roaming\TinyTeX\bin\win32\mktexmf
+Cannot find pcrr8t.mf.
+
+! Font T1/pcr/m/n/10=pcrr8t at 10.0pt not loadable: Metric (TFM) file not found
+.
+<to be read again> 
+                   relax 
+l.20 ...Fernando Carazo }\email{fcarazo@tecnun.es}
+                                                  \AsIs{}
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd)
+No file Rd2.toc.
+[1{c:/Users/javie/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdf
+tex.map}]name = pcrr8t, rootname = pcrr8t, pointsize = 
+mktexmf: empty or non-existent rootfile!
+
+kpathsea: Running mktexmf pcrr8t.mf
+
+The command name is C:\Users\javie\AppData\Roaming\TinyTeX\bin\win32\mktexmf
+Cannot find pcrr8t.mf.
+
+! Font T1/pcr/m/n/9=pcrr8t at 9.0pt not loadable: Metric (TFM) file not found.
+<to be read again> 
+                   relax 
+l.54 \begin{ExampleCode}
+                        
+[2] (./Rd2.aux) )
+(see the transcript file for additional information){c:/Users/javie/AppData/Roa
+ming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/Users/javie/AppData/Roa
+ming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/javie/App
+Data/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/javi
+e/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users
+/javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/
+Users/javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pf
+b>
+Output written on Rd2.pdf (2 pages, 51325 bytes).
+Transcript written on Rd2.log.
+
+kpathsea: Running mktextfm pcrr8t
+
+The command name is C:\Users\javie\AppData\Roaming\TinyTeX\bin\win32\mktextfm
+kpathsea: Appending font creation commands to missfont.log.
+
+kpathsea: Running mktextfm pcrr8t
+
+The command name is C:\Users\javie\AppData\Roaming\TinyTeX\bin\win32\mktextfm
+Error in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  : 
+  unable to run pdflatex on 'Rd2.tex'
+LaTeX errors:
+! Font T1/pcr/m/n/10=pcrr8t at 10.0pt not loadable: Metric (TFM) file not found
+.
+<to be read again> 
+                   relax 
+l.20 ...Fernando Carazo }\email{fcarazo@tecnun.es}
+! Font T1/pcr/m/n/9=pcrr8t at 9.0pt not loadable: Metric (TFM) file not found.
+<to be read again> 
+                   relax 
+l.54 \begin{ExampleCode}
+                        
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18>
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2020/04/10 v1.4m Standard LaTeX document class
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk10.clo))
+(c:/Program Files/R/R-4.1.0/share/texmf/tex/latex/Rd.sty
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty)
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.st
+y) (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/bm.sty)
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/alltt.sty)
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty
+) (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty)
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty)
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty)
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/times.sty))
+ (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
+) (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backen
+d-pdftex.def) (./Rd2.aux)
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1pcr.fd)name = pcrr8t, rootname = pcrr8t, pointsize = 
+mktexmf: empty or non-existent rootfile!
+
+kpathsea: Running mktexmf pcrr8t.mf
+
+The command name is C:\Users\javie\AppData\Roaming\TinyTeX\bin\win32\mktexmf
+Cannot find pcrr8t.mf.
+
+! Font T1/pcr/m/n/10=pcrr8t at 10.0pt not loadable: Metric (TFM) file not found
+.
+<to be read again> 
+                   relax 
+l.20 ...Fernando Carazo }\email{fcarazo@tecnun.es}
+                                                  \AsIs{}
+(c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd)
+(./Rd2.toc) [1{c:/Users/javie/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdfte
+x/updmap/pdftex.map}]name = pcrr8t, rootname = pcrr8t, pointsize = 
+mktexmf: empty or non-existent rootfile!
+
+kpathsea: Running mktexmf pcrr8t.mf
+
+The command name is C:\Users\javie\AppData\Roaming\TinyTeX\bin\win32\mktexmf
+Cannot find pcrr8t.mf.
+
+! Font T1/pcr/m/n/9=pcrr8t at 9.0pt not loadable: Metric (TFM) file not found.
+<to be read again> 
+                   relax 
+l.54 \begin{ExampleCode}
+                        
+[2] (./Rd2.aux) )
+(see the transcript file for additional information){c:/Users/javie/AppData/Roa
+ming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/Users/javie/AppData/Roa
+ming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/javie/App
+Data/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/javi
+e/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users
+/javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/
+Users/javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pf
+b>
+Output written on Rd2.pdf (2 pages, 51389 bytes).
+Transcript written on Rd2.log.
+
+kpathsea: Running mktextfm pcrr8t
+
+The command name is C:\Users\javie\AppData\Roaming\TinyTeX\bin\win32\mktextfm
+kpathsea: Appending font creation commands to missfont.log.
+
+kpathsea: Running mktextfm pcrr8t
+
+The command name is C:\Users\javie\AppData\Roaming\TinyTeX\bin\win32\mktextfm
+Error in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  : 
+  unable to run pdflatex on 'Rd2.tex'
+LaTeX errors:
+! Font T1/pcr/m/n/10=pcrr8t at 10.0pt not loadable: Metric (TFM) file not found
+.
+<to be read again> 
+                   relax 
+l.20 ...Fernando Carazo }\email{fcarazo@tecnun.es}
+! Font T1/pcr/m/n/9=pcrr8t at 9.0pt not loadable: Metric (TFM) file not found.
+<to be read again> 
+                   relax 
+l.54 \begin{ExampleCode}
+                        
+Error in running tools::texi2pdf()
+You may want to clean up by 'rm -Rf C:/Users/javie/AppData/Local/Temp/RtmpGWx4YC/Rd2pdf2efc1bd31e8c'

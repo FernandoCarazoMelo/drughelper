@@ -4,8 +4,15 @@
 ** data
 *** moving datasets to lazyload DB
 ** byte-compile and prepare package for lazy loading
-Error in library(webchem) : there is no package called 'webchem'
-Error: unable to load R code in package 'drughelper'
-Ejecución interrumpida
-ERROR: lazy loading failed for package 'drughelper'
-* removing 'C:/Users/javie/OneDrive/Escritorio/drughelper/Rpackage/drughelper.Rcheck/drughelper'
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+*** arch - i386
+*** arch - x64
+** testing if installed package can be loaded from final location
+*** arch - i386
+*** arch - x64
+** testing if installed package keeps a record of temporary installation path
+* DONE (drughelper)

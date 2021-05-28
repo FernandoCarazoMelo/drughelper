@@ -7,7 +7,7 @@ downloadAbsentFile <- function (dir = tempdir()){
   if(!file.exists(paste0(tempdir(),"/datosChembl.Rdata"))) {
 
     URL <- "https://raw.githubusercontent.com/jaaaviergarcia/drughelper/main/datosChembl.RData"
-    download.file(URL ,destfile =  paste0(tempdir(),"/datosChembl.RData"))
+    download.file(URL ,destfile =  paste0(tempdir(), "/datosChembl.RData"))
   }
 }
 
