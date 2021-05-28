@@ -1,0 +1,58 @@
+---
+title: "Introduction to drughelper"
+author: "Javier García"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to drughelper}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#> "
+)
+```
+
+Drughelper is an R package to identify and correct some drug names of the user's interest in order to easily work with them. Drughelper is constantly updating its dataset (once a month) from Chembl's database.
+
+## Installation
+
+```{r, eval=FALSE}
+install.packages("drughelper")
+
+```
+
+## Drughelper functionality
+
+Drughelper has been created to be as interactive as possible, only one function is needed to get the main information of the input drugs. Also, a vector with the name or synonyms of required drugs is needed as an argument to the function:  
+
+```{r}
+library(drughelper)
+
+vectorofdrugs <- c("Procaine", "Bacitracin", "Pac-1", "Furazosin", "Embelin", "NotADrug")
+```
+
+
+## What exactly drughelper returns
+
+`checkDrugSynonym`  finds possible synonyms for each one of the drugs in the input and returns a dataframe with the best matched synonym for each drug. In the "matching" column, three types of matchings can occur: Exact match, if the drug matches any of the possible synonyms, or either it matches the name of the drug itself. If it does not appear exactly, an approximation may be found, in that case, an approximate matching is returned. Finally if a drug is not found "No match" will be returned. 
+
+```{r}
+checkDrugSynonym(vectorofdrugs)
+
+```
+
+
+## Download data manually
+
+The dataset used is downloaded automatically when `checkDrugSynonym` is called, but can also be downloaded manually:
+
+```{r eval = FALSE}
+downloadAbsentFile()
+
+```
+
+If data has already been downloaded, the function will not download anything.
