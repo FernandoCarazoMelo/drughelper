@@ -3,18 +3,17 @@
 #' @param drugVector A string vector of undefined length, with Drug names
 #' @return A dataframe containing: the input drug name, if it is approved or not, drughelper ID and a proper-more used synonym.
 #' @examples
-#' checkDrugSynonym(c("Procaine", "Bacitracin", "Pac-1", "Furazosin", "Embelin", "NotADrug"))
+#' checkDrugSynonym(c("Procaine", "Furazosin", "Embelin", "NotADrug"))
 #' @export
 
 
 checkDrugSynonym <- function(drugVector) {
 
-  # library(progress)
   pb <- progress_bar$new(total = 100)
 
   downloadAbsentFile(dir = tempdir())
   load(paste0(tempdir(), "/datosChembl.RData"))
-  setDT(datosChembl)
+
   #DATAFRAME
   daf <- data.frame(x = character(),
                     Approved = character(),
@@ -23,70 +22,75 @@ checkDrugSynonym <- function(drugVector) {
                     Cl.Phase = integer(),
                     Matching = character())
 
+
   for (i in 1:length(drugVector)) {
+
     pb$tick()
 
-      daf[i, 1] <- drugVector[i]
+    aux_re <- paste0("^", drugVector[i],"$")
 
-      drug <- formattingDrugName(drugVector[i])
+    daf[i, 1] <- drugVector[i]
 
-      drugVector[i] <- drug
+    drug <- formattingDrugName(drugVector[i])
 
-      logicVector <- grepl(drugVector[i], datosChembl$synonyms_formatted, perl = TRUE, useBytes = TRUE)
+    drugVector[i] <- drug
 
-      ifelse(TRUE %in% logicVector, daf[i, 2] <- TRUE, daf[i, 2] <- FALSE)
+    logicVector <- grepl(drugVector[i], datosChembl$synonyms_formatted, perl = TRUE, useBytes = TRUE)
 
-      aux_1 <- grep(drugVector[i], datosChembl$synonyms_formatted, perl = TRUE, useBytes = TRUE)
-      auxVectorsynonyms <- datosChembl$Drug[aux_1]
-      auxTable <-datosChembl[aux_1, ]
+    ifelse(TRUE %in% logicVector, daf[i, 2] <- TRUE, daf[i, 2] <- FALSE)
 
-      tempDF = data.frame(Id = character(), Synonyms = character())
+    aux_1 <- grep(drugVector[i], datosChembl$synonyms_formatted, perl = TRUE, useBytes = TRUE)
+    auxVectorsynonyms <- datosChembl$Drug[aux_1]
+    auxTable <-datosChembl[aux_1, ]
 
-      for (j in 1:length(auxVectorsynonyms)){
+    tempDF = data.frame(Id = character(), Synonyms = character())
 
-          list = unique(strsplit(auxTable$synonyms_formatted[j], split=";;;"))
-          tempDF = rbind(tempDF, data.frame(Id = auxTable$DrugHelper[j], Synonyms = unlist(list)))
-      }
+    for (j in 1:length(auxVectorsynonyms)){
 
-      tempDF <- unique(tempDF)
-      aux_re <- paste0("^", drugVector[i],"$")
+        list = unique(strsplit(auxTable$synonyms_formatted[j], split=";;;"))
+        tempDF = rbind(tempDF, data.frame(Id = auxTable$DrugHelper[j], Synonyms = unlist(list)))
+    }
 
-      aux_2 <- grep(aux_re, auxTable$Drug, perl = TRUE, useBytes = TRUE)
-      aux_3 <- tempDF$Id[grep(aux_re, tempDF$Synonyms, perl = TRUE, useBytes = TRUE)][1]
-      aux_4 <- grep(aux_3, datosChembl$DrugHelper, perl = TRUE, useBytes = TRUE)
-      aux_5 <- agrep(aux_re, tempDF$Synonyms, max.distance = 3, useBytes = TRUE)
-      aux_6 <- grep(tempDF$Id[aux_5][1], datosChembl$DrugHelper, perl = TRUE, useBytes = TRUE)
+    tempDF <- unique(tempDF)
 
 
-      if (daf[i, 2] == TRUE) {
+    if (daf[i, 2] == TRUE) {
 
-        if (drug %in% auxTable$Drug) {
+      if (drug %in% auxTable$Drug) {
 
-          daf[i, 3] <- auxTable$DrugHelper[aux_2][1]
-          daf[i, 4] <- drug
-          daf[i, 5] <- datosChembl$max_phase[aux_2][1]
-          daf[i, 6] <- "Exact match"
+        aux_2 <- grep(aux_re, auxTable$Drug, perl = TRUE, useBytes = TRUE)
 
-        } else if (!is.na(tempDF$Id[grep(aux_re, tempDF$Synonyms)[1]])) {
+        daf[i, 3] <- auxTable$DrugHelper[aux_2][1]
+        daf[i, 4] <- drug
+        daf[i, 5] <- datosChembl$max_phase[aux_2][1]
+        daf[i, 6] <- "Exact match"
 
-          daf[i, 3] <- aux_3
-          daf[i, 4] <- datosChembl$Drug[aux_4][1]
-          daf[i, 5] <- datosChembl$max_phase[aux_4][1]
-          daf[i, 6] <- "Exact match"
+      } else if (!is.na(tempDF$Id[grep(aux_re, tempDF$Synonyms)[1]])) {
 
-        } else {
+        aux_3 <- tempDF$Id[grep(aux_re, tempDF$Synonyms, perl = TRUE, useBytes = TRUE)][1]
+        aux_4 <- grep(aux_3, datosChembl$DrugHelper, perl = TRUE, useBytes = TRUE)
 
-          daf[i, 3] <- tempDF$Id[agrep(drugVector[i], tempDF$Synonyms)][1]
-          daf[i, 4] <- datosChembl$Drug[aux_6][1]
-          daf[i, 5] <- datosChembl$max_phase[aux_6][1]
-          daf[i, 6] <- "Approximate match"
+        daf[i, 3] <- aux_3
+        daf[i, 4] <- datosChembl$Drug[aux_4][1]
+        daf[i, 5] <- datosChembl$max_phase[aux_4][1]
+        daf[i, 6] <- "Exact match"
 
-          }
       } else {
 
-        daf[i, 4] <- toupper(daf[i, 1])
-        daf[i, 6] <- "No match / clinical phase 0"
-      }
+        aux_5 <- agrep(aux_re, tempDF$Synonyms, max.distance = 3, useBytes = TRUE)
+        aux_6 <- grep(tempDF$Id[aux_5][1], datosChembl$DrugHelper, perl = TRUE, useBytes = TRUE)
+
+        daf[i, 3] <- tempDF$Id[agrep(drugVector[i], tempDF$Synonyms)][1]
+        daf[i, 4] <- datosChembl$Drug[aux_6][1]
+        daf[i, 5] <- datosChembl$max_phase[aux_6][1]
+        daf[i, 6] <- "Approximate match"
+
+        }
+    } else {
+
+      daf[i, 4] <- toupper(daf[i, 1])
+      daf[i, 6] <- "No match / clinical phase 0"
+    }
   }
   return(daf)
 }
