@@ -10,11 +10,7 @@
 checkDrugSynonym <- function(drugVector) {
 
   # library(progress)
-  # pb <- progress_bar$new(total = 100)
-  # for (i in 1:100) {
-  #   pb$tick()
-  #   Sys.sleep(1 / 100)
-  # }
+  pb <- progress_bar$new(total = 100)
 
   downloadAbsentFile(dir = tempdir())
   load(paste0(tempdir(), "/datosChembl.RData"))
@@ -28,6 +24,7 @@ checkDrugSynonym <- function(drugVector) {
                     Matching = character())
 
   for (i in 1:length(drugVector)) {
+    pb$tick()
 
       daf[i, 1] <- drugVector[i]
 
