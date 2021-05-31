@@ -22,11 +22,13 @@ Actualisations}
 \item[Maintainer]\AsIs{Fernando Carazo }\email{fcarazo@tecnun.es}\AsIs{}
 \item[Description]\AsIs{Package DrugHelper is a function which identifies and corrects the names a set of drugs between clinical phases 1-4 and that periodically actualize the available drugs and its synonyms.}
 \item[License]\AsIs{MIT + file LICENSE}
+\item[Imports]\AsIs{progress}
+\item[Depends]\AsIs{progress}
+\item[Suggests]\AsIs{knitr, rmarkdown,}
 \item[Encoding]\AsIs{UTF-8}
-\item[LazyData]\AsIs{true}
 \item[RoxygenNote]\AsIs{7.1.1}
+\item[VignetteBuilder]\AsIs{knitr, rmarkdown}
 \item[NeedsCompilation]\AsIs{no}
-\item[Depends]\AsIs{R (>= 3.5.0)}
 \end{description}
 \Rdcontents{\R{} topics documented:}
 \inputencoding{utf8}
@@ -54,7 +56,7 @@ A dataframe containing: the input drug name, if it is approved or not, drughelpe
 %
 \begin{Examples}
 \begin{ExampleCode}
-checkDrugSynonym(c("Procaine", "Bacitracin", "Pac-1", "Furazosin", "Embelin", "NotADrug"))
+checkDrugSynonym(c("Procaine", "Furazosin", "Embelin", "NotADrug"))
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
@@ -69,6 +71,12 @@ If it has not been downloaded yet, downloads data of drugs
 downloadAbsentFile(dir = tempdir())
 \end{verbatim}
 \end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{dir}] Name of the directory where data is downloaded
+\end{ldescription}
+\end{Arguments}
 \inputencoding{utf8}
 \HeaderA{formattingDrugName}{Normalization of drug names}{formattingDrugName}
 %

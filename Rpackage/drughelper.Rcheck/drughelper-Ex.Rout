@@ -34,6 +34,7 @@ Type 'q()' to quit R.
 > 
 > ### * </HEADER>
 > library('drughelper')
+Loading required package: progress
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
@@ -50,7 +51,59 @@ Type 'q()' to quit R.
 > 
 > ### ** Examples
 > 
-> checkDrugSynonym(c("Procaine", "Bacitracin", "Pac-1", "Furazosin", "Embelin", "NotADrug"))
-Error in library(progress) : there is no package called 'progress'
-Calls: checkDrugSynonym -> library
-Execution halted
+> checkDrugSynonym(c("Procaine", "Furazosin", "Embelin", "NotADrug"))
+trying URL 'https://raw.githubusercontent.com/jaaaviergarcia/drughelper/main/datosChembl.RData'
+Content type 'application/octet-stream' length 13766869 bytes (13.1 MB)
+==================================================
+downloaded 13.1 MB
+
+          x Approved DrugHelperID Suggested.Synonym Cl.Phase
+1  Procaine     TRUE         <NA>          PROCAINE       NA
+2 Furazosin     TRUE         DH01              <NA>       NA
+3   Embelin     TRUE      DH01648              <NA>       NA
+4  NotADrug    FALSE         <NA>          NOTADRUG       NA
+                     Matching
+1                 Exact match
+2           Approximate match
+3           Approximate match
+4 No match / clinical phase 0
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("checkDrugSynonym", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("formattingDrugName")
+> ### * formattingDrugName
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: formattingDrugName
+> ### Title: Normalization of drug names
+> ### Aliases: formattingDrugName
+> 
+> ### ** Examples
+> 
+> formattingDrugName("morphine")
+[1] "MORPHINE"
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("formattingDrugName", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  1.26 0.49 7.12 NA NA 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

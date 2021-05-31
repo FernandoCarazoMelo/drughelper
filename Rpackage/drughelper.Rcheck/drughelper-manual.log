@@ -1,25 +1,25 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.7)  27 MAY 2021 13:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.30)  31 MAY 2021 13:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Rd2.tex
 (./Rd2.tex
 LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-02-18>
+L3 programming layer <2021-05-27>
 (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2020/04/10 v1.4m Standard LaTeX document class
 (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
 File: bk10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
-\c@part=\count179
-\c@chapter=\count180
-\c@section=\count181
-\c@subsection=\count182
-\c@subsubsection=\count183
-\c@paragraph=\count184
-\c@subparagraph=\count185
-\c@figure=\count186
-\c@table=\count187
+\c@part=\count181
+\c@chapter=\count182
+\c@section=\count183
+\c@subsection=\count184
+\c@subsubsection=\count185
+\c@paragraph=\count186
+\c@subparagraph=\count187
+\c@figure=\count188
+\c@table=\count189
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
@@ -37,16 +37,16 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTright=\skip50
 \LTpre=\skip51
 \LTpost=\skip52
-\LTchunksize=\count188
+\LTchunksize=\count190
 \LTcapwidth=\dimen139
 \LT@head=\box47
 \LT@firsthead=\box48
 \LT@foot=\box49
 \LT@lastfoot=\box50
-\LT@cols=\count189
-\LT@rows=\count190
-\c@LT@tables=\count191
-\c@LT@chunks=\count192
+\LT@cols=\count191
+\LT@rows=\count192
+\c@LT@tables=\count193
+\c@LT@chunks=\count194
 \LT@p@ftn=\toks15
 ) (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2019/07/24 v1.2d Bold Symbol Support (DPC/FMi)
@@ -95,10 +95,10 @@ tex
 
 (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.t
 ex))
-\XKV@depth=\count193
+\XKV@depth=\count195
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-\zifour@ocount=\count194
+\zifour@ocount=\count196
 )
 (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2020/02/24 v1.2b Standard LaTeX Color (DPC)
@@ -166,8 +166,8 @@ s.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
 \@linkdim=\dimen140
-\Hy@linkcounter=\count195
-\Hy@pagecounter=\count196
+\Hy@linkcounter=\count197
+\Hy@pagecounter=\count198
 
 (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.de
 f
@@ -188,7 +188,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 s.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count197
+\Hy@SavedSpaceFactor=\count199
 
 (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
@@ -202,7 +202,7 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count198
+\c@Hy@tempcnt=\count266
 LaTeX Info: Redefining \url on input line 4804.
 \XeTeXLinkMargin=\dimen141
 
@@ -215,7 +215,7 @@ tcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count199
+\Fld@menulength=\count267
 \Field@Width=\dimen142
 \Fld@charsize=\dimen143
 Package hyperref Info: Hyper figures OFF on input line 6075.
@@ -234,9 +234,9 @@ Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
 ge
 with kernel methods
 )
-\Hy@abspage=\count266
-\c@Item=\count267
-\c@Hfootnote=\count268
+\Hy@abspage=\count268
+\c@Item=\count269
+\c@Hfootnote=\count270
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -250,8 +250,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
 e
 with kernel methods
 )
-\Fld@listcount=\count269
-\c@bookmark@seq@number=\count270
+\Fld@listcount=\count271
+\c@bookmark@seq@number=\count272
 
 (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rer
 unfilecheck.sty
@@ -296,8 +296,8 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backen
 d-pdftex.def
-File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count271
+File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count273
 \l__pdf_internal_box=\box51
 ) (./Rd2.aux)
 \openout1 = `Rd2.aux'.
@@ -334,7 +334,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count272
+\c@section@level=\count274
 )
 LaTeX Info: Redefining \ref on input line 8.
 LaTeX Info: Redefining \pageref on input line 8.
@@ -352,7 +352,7 @@ File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 10.0pt on input line 22.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 31
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 33
 .
 
 (c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd
@@ -373,12 +373,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 {c:/Users/javie/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdfte
 x.map}]
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 56.
-
-Overfull \hbox (2.26555pt too wide) in paragraph at lines 57--57
- []\T1/zi4/m/n/9 checkDrugSynonym(c("Procaine", "Bacitracin", "Pac-1", "Furazos
-in", "Embelin", "NotADrug")) 
- []
+(Font)              scaled to size 9.0pt on input line 58.
 
 No file Rd2.ind.
 [2] (./Rd2.aux)
@@ -386,13 +381,13 @@ Package rerunfilecheck Info: File `Rd2.out' has not changed.
 (rerunfilecheck)             Checksum: AEFF4A4E860F411433472ECAF85094B5;432.
  ) 
 Here is how much of TeX's memory you used:
- 8288 strings out of 480954
- 123276 string characters out of 5905583
- 415685 words of memory out of 5000000
- 25367 multiletter control sequences out of 15000+600000
+ 8354 strings out of 480714
+ 124793 string characters out of 5901596
+ 420754 words of memory out of 5000000
+ 25672 multiletter control sequences out of 15000+600000
  436572 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 88i,5n,90p,248b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 77i,5n,82p,248b,429s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.en
 c}{c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolat
 a/i4-t1-0.enc}<c:/Users/javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pu
@@ -402,10 +397,10 @@ inyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/javie/AppData/Roam
 ing/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/javie/AppData
 /Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/javie/Ap
 pData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (2 pages, 68059 bytes).
+Output written on Rd2.pdf (2 pages, 67521 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
- 22 named destinations out of 1000 (max. 500000)
+ 80 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
+ 23 named destinations out of 1000 (max. 500000)
  25 words of extra memory for PDF output out of 10000 (max. 10000000)
 
