@@ -6,6 +6,9 @@
 \usage{
 downloadAbsentFile(dir = tempdir())
 }
+\arguments{
+\item{dir}{Name of the directory where data is downloaded}
+}
 \description{
 If it has not been downloaded yet, downloads data of drugs
 }
