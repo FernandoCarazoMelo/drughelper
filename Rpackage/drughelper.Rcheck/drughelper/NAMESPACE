@@ -3,3 +3,5 @@
 export(checkDrugSynonym)
 export(downloadAbsentFile)
 export(formattingDrugName)
+import(progress)
+importFrom(utils,download.file)

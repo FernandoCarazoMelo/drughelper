@@ -3,11 +3,18 @@
 #' @param drugVector A string vector of undefined length, with Drug names
 #' @return A dataframe containing: the input drug name, if it is approved or not, drughelper ID and a proper-more used synonym.
 #' @examples
-#' checkDrugSynonym(c("Procaine", "Furazosin", "Embelin", "NotADrug"))
+#' \donttest{
+#' checkDrugSynonym(c("Procaine", "Furazosin", "Embelin"))
+#' }
+#' @import progress
 #' @export
 
 
 checkDrugSynonym <- function(drugVector) {
+
+  if(is.null(drugVector)){
+    stop("not input vector of drugs")
+  }
 
   pb <- progress_bar$new(total = 100)
 

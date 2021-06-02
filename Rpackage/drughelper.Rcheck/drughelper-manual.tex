@@ -22,7 +22,7 @@ Actualisations}
 \item[Maintainer]\AsIs{Fernando Carazo }\email{fcarazo@tecnun.es}\AsIs{}
 \item[Description]\AsIs{Package DrugHelper is a function which identifies and corrects the names a set of drugs between clinical phases 1-4 and that periodically actualize the available drugs and its synonyms.}
 \item[License]\AsIs{MIT + file LICENSE}
-\item[Depends]\AsIs{progress}
+\item[Imports]\AsIs{progress, utils}
 \item[Suggests]\AsIs{knitr, rmarkdown,}
 \item[Encoding]\AsIs{UTF-8}
 \item[RoxygenNote]\AsIs{7.1.1}
@@ -55,7 +55,9 @@ A dataframe containing: the input drug name, if it is approved or not, drughelpe
 %
 \begin{Examples}
 \begin{ExampleCode}
-checkDrugSynonym(c("Procaine", "Furazosin", "Embelin", "NotADrug"))
+
+checkDrugSynonym(c("Procaine", "Furazosin", "Embelin"))
+
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}

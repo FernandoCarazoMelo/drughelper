@@ -31,7 +31,9 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-checkDrugSynonym(c("Procaine", "Furazosin", "Embelin", "NotADrug"))
+## No test: 
+checkDrugSynonym(c("Procaine", "Furazosin", "Embelin"))
+## End(No test)
 
 
 

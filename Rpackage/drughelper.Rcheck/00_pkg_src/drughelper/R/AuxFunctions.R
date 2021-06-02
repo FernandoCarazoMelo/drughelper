@@ -1,7 +1,9 @@
-# En este script leemos el archivo generado en python y
-# juntamos los sinonimos de la base de datos de Chembl
-# con los sinonimos de la base de datos de Pubchem
-# relativos a los farmacos de Chembl
+#' Drughelper Internal Functions
+#'
+#' @keywords internal
+#' @name InternalFunctions
+#' @return Internal outputs
+#'
 
 addandsort <- function() {
 
@@ -67,4 +69,28 @@ addandsort <- function() {
 
   # save(datosChembl, file = "https://raw.githubusercontent.com/jaaaviergarcia/drughelper/main/datosChembl.RData")
   # guardar esta tabla en github mediante codigo (esta guardada manualmente)
+}
+
+
+
+
+
+
+
+
+
+
+
+updateTable <- function(datosChembl){
+
+  for (i in 1:nrow(datosChembl)){
+
+    aux <- gsub("[[:blank:]]", "", datosChembl$synonyms[i])
+    datosChembl$synonyms_formatted[i] <- gsub("[^[:alnum:];]", "", aux)
+
   }
+  return(datosChembl)
+
+}
+
+

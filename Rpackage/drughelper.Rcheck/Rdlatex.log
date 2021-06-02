@@ -63,7 +63,7 @@ e/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users
 /javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/
 Users/javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on Rd2.pdf (2 pages, 50820 bytes).
+Output written on Rd2.pdf (2 pages, 50927 bytes).
 Transcript written on Rd2.log.
 
 kpathsea: Running mktextfm pcrr8t
@@ -149,7 +149,7 @@ e/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users
 /javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/
 Users/javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on Rd2.pdf (2 pages, 50889 bytes).
+Output written on Rd2.pdf (2 pages, 51015 bytes).
 Transcript written on Rd2.log.
 
 kpathsea: Running mktextfm pcrr8t
@@ -174,4 +174,4 @@ l.20 ...Fernando Carazo }\email{fcarazo@tecnun.es}
 l.55 \begin{ExampleCode}
                         
 Error in running tools::texi2pdf()
-You may want to clean up by 'rm -Rf C:/Users/javie/AppData/Local/Temp/Rtmp40vRqA/Rd2pdf2a0c7d973d24'
+You may want to clean up by 'rm -Rf C:/Users/javie/AppData/Local/Temp/RtmpUFKJB0/Rd2pdf195879bb5905'

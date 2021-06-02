@@ -34,7 +34,6 @@ Type 'q()' to quit R.
 > 
 > ### * </HEADER>
 > library('drughelper')
-Loading required package: progress
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
@@ -51,7 +50,8 @@ Loading required package: progress
 > 
 > ### ** Examples
 > 
-> checkDrugSynonym(c("Procaine", "Furazosin", "Embelin", "NotADrug"))
+> ## No test: 
+> checkDrugSynonym(c("Procaine", "Furazosin", "Embelin"))
 trying URL 'https://raw.githubusercontent.com/jaaaviergarcia/drughelper/main/datosChembl.RData'
 Content type 'application/octet-stream' length 13766869 bytes (13.1 MB)
 ==================================================
@@ -61,12 +61,11 @@ downloaded 13.1 MB
 1  Procaine     TRUE       DH0250              PROCAINE        4
 2 Furazosin     TRUE         DH01              PRAZOSIN        4
 3   Embelin     TRUE      DH01648 CLOBETASOL PROPIONATE        4
-4  NotADrug    FALSE         <NA>              NOTADRUG       NA
-                     Matching
-1                 Exact match
-2                 Exact match
-3           Approximate match
-4 No match / clinical phase 0
+           Matching
+1       Exact match
+2       Exact match
+3 Approximate match
+> ## End(No test)
 > 
 > 
 > 
@@ -97,7 +96,7 @@ downloaded 13.1 MB
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  1.22 0.31 7.09 NA NA 
+Time elapsed:  1.98 0.6 9.56 NA NA 
 > grDevices::dev.off()
 null device 
           1 
