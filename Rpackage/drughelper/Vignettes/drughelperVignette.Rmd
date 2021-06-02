@@ -1,6 +1,6 @@
 ---
 title: "Introduction to drughelper"
-author: "Javier García"
+author: "Javier García & Fernando Carazo"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -12,7 +12,7 @@ vignette: >
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#> "
+  comment = "#>"
 )
 ```
 
@@ -29,7 +29,7 @@ install.packages("drughelper")
 
 Drughelper has been created to be as interactive as possible, only one function is needed to get the main information of the input drugs. Also, a vector with the name or synonyms of required drugs is needed as an argument to the function:  
 
-```{r}
+```{r,eval=TRUE}
 library(drughelper)
 
 vectorofdrugs <- c("Procaine", "Furazosin", "Embelin", "NotADrug")
