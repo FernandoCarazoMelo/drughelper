@@ -6,7 +6,8 @@ Author: Javier Garcia
 Maintainer: Fernando Carazo <fcarazo@tecnun.es>
 Description: Package DrugHelper is a function which identifies and corrects the names a set of drugs between clinical phases 1-4 and that periodically actualize the available drugs and its synonyms.
 License: MIT + file LICENSE
-Depends: progress
+Imports: progress,
+    utils
 Suggests: knitr,
     rmarkdown,
 Encoding: UTF-8
