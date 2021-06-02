@@ -16,5 +16,7 @@ A dataframe containing: the input drug name, if it is approved or not, drughelpe
 Given an input of drug synonyms, check if those drugs are approved and find a proper more used synonym
 }
 \examples{
-checkDrugSynonym(c("Procaine", "Furazosin", "Embelin", "NotADrug"))
+\donttest{
+checkDrugSynonym(c("Procaine", "Furazosin", "Embelin"))
+}
 }
