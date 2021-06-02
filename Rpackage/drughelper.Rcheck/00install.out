@@ -1,12 +1,10 @@
 * installing *source* package 'drughelper' ...
 ** using staged installation
 ** R
-** inst
 ** byte-compile and prepare package for lazy loading
 ** help
 *** installing help indices
 ** building package indices
-** installing vignettes
 ** testing if installed package can be loaded from temporary location
 *** arch - i386
 *** arch - x64

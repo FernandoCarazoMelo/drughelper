@@ -25,9 +25,7 @@ checkDrugSynonym <- function(drugVector) {
 
   for (i in 1:length(drugVector)) {
 
-    pb$tick()
-
-    aux_re <- paste0("^", drugVector[i],"$")
+    pb$tick(100/length(drugVector))
 
     daf[i, 1] <- drugVector[i]
 
@@ -53,21 +51,20 @@ checkDrugSynonym <- function(drugVector) {
 
     tempDF <- unique(tempDF)
 
-
     if (daf[i, 2] == TRUE) {
 
       if (drug %in% auxTable$Drug) {
 
-        aux_2 <- grep(aux_re, auxTable$Drug, perl = TRUE, useBytes = TRUE)
+        aux_2 <- grep(paste0("^", drugVector[i],"$"), auxTable$Drug, perl = TRUE, useBytes = TRUE)
 
         daf[i, 3] <- auxTable$DrugHelper[aux_2][1]
         daf[i, 4] <- drug
         daf[i, 5] <- datosChembl$max_phase[aux_2][1]
         daf[i, 6] <- "Exact match"
 
-      } else if (!is.na(tempDF$Id[grep(aux_re, tempDF$Synonyms)[1]])) {
+      } else if (!is.na(tempDF$Id[grep(paste0("^", drugVector[i],"$"), tempDF$Synonyms)[1]])) {
 
-        aux_3 <- tempDF$Id[grep(aux_re, tempDF$Synonyms, perl = TRUE, useBytes = TRUE)][1]
+        aux_3 <- tempDF$Id[grep(paste0("^", drugVector[i],"$"), tempDF$Synonyms, perl = TRUE, useBytes = TRUE)][1]
         aux_4 <- grep(aux_3, datosChembl$DrugHelper, perl = TRUE, useBytes = TRUE)
 
         daf[i, 3] <- aux_3
@@ -77,7 +74,7 @@ checkDrugSynonym <- function(drugVector) {
 
       } else {
 
-        aux_5 <- agrep(aux_re, tempDF$Synonyms, max.distance = 3, useBytes = TRUE)
+        aux_5 <- agrep(paste0("^", drugVector[i],"$"), tempDF$Synonyms, max.distance = 3, useBytes = TRUE)
         aux_6 <- grep(tempDF$Id[aux_5][1], datosChembl$DrugHelper, perl = TRUE, useBytes = TRUE)
 
         daf[i, 3] <- tempDF$Id[agrep(drugVector[i], tempDF$Synonyms)][1]

@@ -52,7 +52,7 @@ Cannot find pcrr8t.mf.
 ! Font T1/pcr/m/n/9=pcrr8t at 9.0pt not loadable: Metric (TFM) file not found.
 <to be read again> 
                    relax 
-l.56 \begin{ExampleCode}
+l.55 \begin{ExampleCode}
                         
 [2] (./Rd2.aux) )
 (see the transcript file for additional information){c:/Users/javie/AppData/Roa
@@ -63,7 +63,7 @@ e/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users
 /javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/
 Users/javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on Rd2.pdf (2 pages, 51131 bytes).
+Output written on Rd2.pdf (2 pages, 50820 bytes).
 Transcript written on Rd2.log.
 
 kpathsea: Running mktextfm pcrr8t
@@ -85,7 +85,7 @@ l.20 ...Fernando Carazo }\email{fcarazo@tecnun.es}
 ! Font T1/pcr/m/n/9=pcrr8t at 9.0pt not loadable: Metric (TFM) file not found.
 <to be read again> 
                    relax 
-l.56 \begin{ExampleCode}
+l.55 \begin{ExampleCode}
                         
 This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -138,7 +138,7 @@ Cannot find pcrr8t.mf.
 ! Font T1/pcr/m/n/9=pcrr8t at 9.0pt not loadable: Metric (TFM) file not found.
 <to be read again> 
                    relax 
-l.56 \begin{ExampleCode}
+l.55 \begin{ExampleCode}
                         
 [2] (./Rd2.aux) )
 (see the transcript file for additional information){c:/Users/javie/AppData/Roa
@@ -149,7 +149,7 @@ e/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users
 /javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/
 Users/javie/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on Rd2.pdf (2 pages, 51191 bytes).
+Output written on Rd2.pdf (2 pages, 50889 bytes).
 Transcript written on Rd2.log.
 
 kpathsea: Running mktextfm pcrr8t
@@ -171,7 +171,7 @@ l.20 ...Fernando Carazo }\email{fcarazo@tecnun.es}
 ! Font T1/pcr/m/n/9=pcrr8t at 9.0pt not loadable: Metric (TFM) file not found.
 <to be read again> 
                    relax 
-l.56 \begin{ExampleCode}
+l.55 \begin{ExampleCode}
                         
 Error in running tools::texi2pdf()
-You may want to clean up by 'rm -Rf C:/Users/javie/AppData/Local/Temp/RtmpoDaMJR/Rd2pdfc7470ed754d'
+You may want to clean up by 'rm -Rf C:/Users/javie/AppData/Local/Temp/Rtmp40vRqA/Rd2pdf2a0c7d973d24'

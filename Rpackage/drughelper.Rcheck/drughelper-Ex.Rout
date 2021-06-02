@@ -57,14 +57,14 @@ Content type 'application/octet-stream' length 13766869 bytes (13.1 MB)
 ==================================================
 downloaded 13.1 MB
 
-          x Approved DrugHelperID Suggested.Synonym Cl.Phase
-1  Procaine     TRUE         <NA>          PROCAINE       NA
-2 Furazosin     TRUE         DH01              <NA>       NA
-3   Embelin     TRUE      DH01648              <NA>       NA
-4  NotADrug    FALSE         <NA>          NOTADRUG       NA
+          x Approved DrugHelperID     Suggested.Synonym Cl.Phase
+1  Procaine     TRUE       DH0250              PROCAINE        4
+2 Furazosin     TRUE         DH01              PRAZOSIN        4
+3   Embelin     TRUE      DH01648 CLOBETASOL PROPIONATE        4
+4  NotADrug    FALSE         <NA>              NOTADRUG       NA
                      Matching
 1                 Exact match
-2           Approximate match
+2                 Exact match
 3           Approximate match
 4 No match / clinical phase 0
 > 
@@ -97,7 +97,7 @@ downloaded 13.1 MB
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  1.26 0.49 7.12 NA NA 
+Time elapsed:  1.22 0.31 7.09 NA NA 
 > grDevices::dev.off()
 null device 
           1 
