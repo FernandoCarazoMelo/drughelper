@@ -32,11 +32,11 @@ Drughelper has been created to be as interactive as possible, only one function 
 ```{r}
 library(drughelper)
 
-vectorofdrugs <- c("Procaine", "Bacitracin", "Pac-1", "Furazosin", "Embelin", "NotADrug")
+vectorofdrugs <- c("Procaine", "Furazosin", "Embelin", "NotADrug")
 ```
 
 
-## What exactly drughelper returns
+## What does drughelper return
 
 `checkDrugSynonym`  finds possible synonyms for each one of the drugs in the input and returns a dataframe with the best matched synonym for each drug. In the "matching" column, three types of matchings can occur: Exact match, if the drug matches any of the possible synonyms, or either it matches the name of the drug itself. If it does not appear exactly, an approximation may be found, in that case, an approximate matching is returned. Finally if a drug is not found "No match" will be returned. 
 
@@ -56,3 +56,19 @@ downloadAbsentFile()
 ```
 
 If data has already been downloaded, the function will not download anything.
+
+## Case studies
+
+Two case studies are explained, in which we compare the number of drug matches that appear in different studies both with and without the Drughelper function.  The objective is to see if when comparing a drug name with all its synonyms, more matches appear or not.
+
+### Case 1:
+
+In this first approach, we have compared four different studies, three of them from the PharmacoGx project and the other one from the BeatAML functional genomic study.
+
+PharmacoGx is an R package which has data from the cancer cell line encyclopedia (CCLE), the Genomics of Drug Sensitivity Cancer project (GDSC) and the connectivity map (CMAP) from the broad institute. They have 24, 139 and 5 unique drugs, respectively.
+
+BeatAML is a program which contains different datasets on acute myeloid leukemia (AML). In this case the data used belongs to the drug response dataset, containing 122 unique drugs.
+
+### Case 2:
+
+Now a large dataset of 1996 drugs from #nombre del proyecto# is compared with the previous ones

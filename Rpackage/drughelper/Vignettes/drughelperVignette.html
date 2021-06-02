@@ -12,7 +12,7 @@
 
 <meta name="author" content="Javier García" />
 
-<meta name="date" content="2021-05-25" />
+<meta name="date" content="2021-06-01" />
 
 <title>Introduction to drughelper</title>
 
@@ -336,7 +336,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Introduction to drughelper</h1>
 <h4 class="author">Javier García</h4>
-<h4 class="date">2021-05-25</h4>
+<h4 class="date">2021-06-01</h4>
 
 
 
@@ -349,26 +349,44 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h2>Drughelper functionality</h2>
 <p>Drughelper has been created to be as interactive as possible, only one function is needed to get the main information of the input drugs. Also, a vector with the name or synonyms of required drugs is needed as an argument to the function:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">library</span>(drughelper)</span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a>vectorofdrugs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Procaine&quot;</span>, <span class="st">&quot;Bacitracin&quot;</span>, <span class="st">&quot;Pac-1&quot;</span>, <span class="st">&quot;Furazosin&quot;</span>, <span class="st">&quot;Embelin&quot;</span>, <span class="st">&quot;NotADrug&quot;</span>)</span></code></pre></div>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">#&gt;  Loading required package: progress</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a>vectorofdrugs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Procaine&quot;</span>, <span class="st">&quot;Furazosin&quot;</span>, <span class="st">&quot;Embelin&quot;</span>, <span class="st">&quot;NotADrug&quot;</span>)</span></code></pre></div>
 </div>
-<div id="what-exactly-drughelper-returns" class="section level2">
-<h2>What exactly drughelper returns</h2>
+<div id="what-does-drughelper-return" class="section level2">
+<h2>What does drughelper return</h2>
 <p><code>checkDrugSynonym</code> finds possible synonyms for each one of the drugs in the input and returns a dataframe with the best matched synonym for each drug. In the “matching” column, three types of matchings can occur: Exact match, if the drug matches any of the possible synonyms, or either it matches the name of the drug itself. If it does not appear exactly, an approximation may be found, in that case, an approximate matching is returned. Finally if a drug is not found “No match” will be returned.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">checkDrugSynonym</span>(vectorofdrugs)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#&gt;             x Approved DrugHelperID Suggested.Synonym          Matching</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt;  1   Procaine     TRUE       DH0250          PROCAINE       Exact match</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt;  2 Bacitracin     TRUE      DH01845        BACITRACIN       Exact match</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt;  3      Pac-1     TRUE      DH07872             PAC-1       Exact match</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt;  4  Furazosin     TRUE         DH01          PRAZOSIN       Exact match</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt;  5    Embelin     TRUE      DH01648          EMBELINE Approximate match</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt;  6   NotADrug    FALSE         &lt;NA&gt;              &lt;NA&gt;          No match</span></span></code></pre></div>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#&gt;            x Approved DrugHelperID     Suggested.Synonym Cl.Phase</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt;  1  Procaine     TRUE       DH0250              PROCAINE        4</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt;  2 Furazosin     TRUE         DH01              PRAZOSIN        4</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt;  3   Embelin     TRUE      DH01648 CLOBETASOL PROPIONATE        4</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt;  4  NotADrug    FALSE         &lt;NA&gt;              NOTADRUG       NA</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt;                       Matching</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt;  1                 Exact match</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt;  2                 Exact match</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt;  3           Approximate match</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt;  4 No match / clinical phase 0</span></span></code></pre></div>
 </div>
 <div id="download-data-manually" class="section level2">
 <h2>Download data manually</h2>
 <p>The dataset used is downloaded automatically when <code>checkDrugSynonym</code> is called, but can also be downloaded manually:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">downloadAbsentFile</span>()</span></code></pre></div>
 <p>If data has already been downloaded, the function will not download anything.</p>
+</div>
+<div id="case-studies" class="section level2">
+<h2>Case studies</h2>
+<p>Two case studies are explained, in which we compare the number of drug matches that appear in different studies both with and without the Drughelper function. The objective is to see if when comparing a drug name with all its synonyms, more matches appear or not.</p>
+<div id="case-1" class="section level3">
+<h3>Case 1:</h3>
+<p>In this first approach, we have compared four different studies, three of them from the PharmacoGx project and the other one from the BeatAML functional genomic study.</p>
+<p>PharmacoGx is an R package which has data from the cancer cell line encyclopedia (CCLE), the Genomics of Drug Sensitivity Cancer project (GDSC) and the connectivity map (CMAP) from the broad institute. They have 24, 139 and 5 unique drugs, respectively.</p>
+<p>BeatAML is a program which contains different datasets on acute myeloid leukemia (AML). In this case the data used belongs to the drug response dataset, containing 122 unique drugs.</p>
+</div>
+<div id="case-2" class="section level3">
+<h3>Case 2:</h3>
+<p>Now a large dataset of 1996 drugs from #nombre del proyecto# is compared with the previous ones</p>
+</div>
 </div>
 
 
