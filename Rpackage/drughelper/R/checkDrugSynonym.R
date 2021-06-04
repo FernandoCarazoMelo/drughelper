@@ -13,7 +13,7 @@
 checkDrugSynonym <- function(drugVector) {
 
   if(is.null(drugVector)){
-    stop("not input vector of drugs")
+    stop("input drugVector must be a string vector")
   }
 
   pb <- progress_bar$new(total = 100)
