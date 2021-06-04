@@ -5,7 +5,7 @@
 #' @return Internal outputs
 #'
 
-addandsort <- function() {
+tsv2rdata <- function() {
 
   source("./R/formattingDrugName.R")
   source("./R/downloadAbsentFile.R")
@@ -17,8 +17,9 @@ addandsort <- function() {
   # data("datosChembl")
 
   # DOWNLOADED FROM TSV
-  # library(readr)
-  # datosChembl <- read_delim("datosChembl.tsv", "\t", escape_double = FALSE, trim_ws = TRUE)
+  library(readr)
+  datosChembl <- read_delim("https://raw.githubusercontent.com/jaaaviergarcia/drughelper/main/datosChembl.tsv",
+                            "\t", escape_double = FALSE, trim_ws = TRUE)
 
   load("../../data/input/2020-12-17version/singleDrugSynonymsChembl.RData")
 
@@ -63,17 +64,9 @@ addandsort <- function() {
 
   datosChembl <- subset(datosChembl, select = c(8,2,1,4,5,6,7,3))
 
-  for (i in 1:nrow(datosChembl)) {
-    datosChembl$synonyms_formatted[i] <- paste0(";;;", datosChembl$synonyms_formatted[i], ";;;")
-  }
-
-  # save(datosChembl, file = "https://raw.githubusercontent.com/jaaaviergarcia/drughelper/main/datosChembl.RData")
+  save(datosChembl, file = "https://github.com/jaaaviergarcia/drughelper/datosChembl2.RData")
   # guardar esta tabla en github mediante codigo (esta guardada manualmente)
 }
-
-
-
-
 
 
 
