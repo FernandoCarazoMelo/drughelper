@@ -64,7 +64,7 @@ tsv2rdata <- function() {
 
   datosChembl <- subset(datosChembl, select = c(8,2,1,4,5,6,7,3))
 
-  save(datosChembl, file = "https://github.com/jaaaviergarcia/drughelper/datosChembl2.RData")
+  # save(datosChembl, file = "https://github.com/jaaaviergarcia/drughelper/datosChembl2.RData")
   # guardar esta tabla en github mediante codigo (esta guardada manualmente)
 }
 
