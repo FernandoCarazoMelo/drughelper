@@ -2,10 +2,10 @@
 % Please edit documentation in R/AuxFunctions.R
 \name{InternalFunctions}
 \alias{InternalFunctions}
-\alias{addandsort}
+\alias{tsv2rdata}
 \title{Drughelper Internal Functions}
 \usage{
-addandsort()
+tsv2rdata()
 }
 \value{
 Internal outputs
