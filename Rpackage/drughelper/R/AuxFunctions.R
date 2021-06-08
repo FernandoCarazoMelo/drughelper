@@ -17,7 +17,7 @@ tsv2rdata <- function() {
   # data("datosChembl")
 
   # DOWNLOADED FROM TSV
-  library(readr)
+  requireNamespace("readr")
   datosChembl <- read_delim("https://raw.githubusercontent.com/jaaaviergarcia/drughelper/main/datosChembl.tsv",
                             "\t", escape_double = FALSE, trim_ws = TRUE)
 
