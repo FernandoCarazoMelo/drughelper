@@ -44,7 +44,7 @@ for i in range(len(data['synonyms'])):
     data['synonyms'][i] = ";;;".join(d)
     d = []
     
-data.to_csv('datosChembl.tsv', sep = '\t', index=False)
+data.to_csv('https://github.com/jaaaviergarcia/drughelperdatosChembl.tsv', sep = '\t', index=False)
 
 
 
