@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "ms-toolsai.jupyter"
+        "ms-toolsai.jupyter",
+        "james-yu.latex-workshop"
     ]
 }
