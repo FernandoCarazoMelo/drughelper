@@ -3,9 +3,12 @@
 \name{InternalFunctions}
 \alias{InternalFunctions}
 \alias{tsv2rdata}
+\alias{updateTable}
 \title{Drughelper Internal Functions}
 \usage{
 tsv2rdata()
+
+updateTable(datosChembl)
 }
 \value{
 Internal outputs
