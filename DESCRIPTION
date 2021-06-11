@@ -1,0 +1,19 @@
+Package: drughelper
+Type: Package
+Title: Drug Identification and Drug Name Correction with Automatic
+        Updates
+Version: 0.1.0
+Author: Fernando Carazo, Javier Garcia
+Maintainer: Javier Garcia <a905125@alumni.unav.es>
+Description: Package DrugHelper is a function which identifies and corrects the names a set of drugs between clinical phases 1-4 and that periodically actualize the available drugs and its synonyms.
+License: MIT + file LICENSE
+Imports: progress, utils, readr
+Suggests: knitr, rmarkdown, BiocGenerics, RUnit
+Encoding: UTF-8
+LazyData: true
+LazyDataCompression: xz
+RoxygenNote: 7.1.1
+VignetteBuilder: knitr, rmarkdown
+NeedsCompilation: no
+Packaged: 2021-06-11 15:34:17 UTC; Javier
+Depends: R (>= 3.5.0)
