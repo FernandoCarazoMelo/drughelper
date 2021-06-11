@@ -2,9 +2,12 @@
 #'
 #' @keywords internal
 #' @name InternalFunctions
+#' @import readr
+#' @importFrom utils data
 #' @return Internal outputs
 #'
 
+#' @rdname InternalFunctions
 tsv2rdata <- function() {
 
   source("./R/formattingDrugName.R")
@@ -21,7 +24,8 @@ tsv2rdata <- function() {
   datosChembl <- read_delim("https://raw.githubusercontent.com/jaaaviergarcia/drughelper/main/datosChembl.tsv",
                             "\t", escape_double = FALSE, trim_ws = TRUE)
 
-  load("../../data/input/2020-12-17version/singleDrugSynonymsChembl.RData")
+  # singleDrugSynonymsChembl<-c()
+  data("singleDrugSynonymsChembl", envir = environment())
 
   for (i in 1:nrow(datosChembl)){
     datosChembl$synonyms[i] <- toupper(datosChembl$synonyms[i])
@@ -70,10 +74,7 @@ tsv2rdata <- function() {
 
 
 
-
-
-
-
+#' @rdname InternalFunctions
 updateTable <- function(datosChembl){
 
   for (i in 1:nrow(datosChembl)){
