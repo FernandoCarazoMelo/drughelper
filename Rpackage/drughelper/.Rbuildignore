@@ -1,5 +1,2 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^chemblTable.py
-^datosChembl.tsv
-^vignettes
