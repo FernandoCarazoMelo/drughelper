@@ -24,7 +24,7 @@ tsv2rdata <- function() {
   datosChembl <- read_delim("https://raw.githubusercontent.com/jaaaviergarcia/drughelper/main/datosChembl.tsv",
                             "\t", escape_double = FALSE, trim_ws = TRUE)
 
-  # singleDrugSynonymsChembl<-c()
+  singleDrugSynonymsChembl<-c()
   data("singleDrugSynonymsChembl", envir = environment())
 
   for (i in 1:nrow(datosChembl)){
