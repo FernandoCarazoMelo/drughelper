@@ -5,7 +5,7 @@ output:
     keep_md: true
 ---
 
-# Introduction to Drughelper
+## Introduction to Drughelper
 
 Drughelper is an R package to identify and correct some drug names of the user's interest in order to easily work with them. Drughelper is constantly updating its dataset (once a month) from Chembl's database.
 
