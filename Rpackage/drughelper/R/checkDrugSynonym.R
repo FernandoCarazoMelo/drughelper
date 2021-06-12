@@ -12,6 +12,7 @@
 
 checkDrugSynonym <- function(drugVector) {
 
+  datosChembl <- c()
   if(is.null(drugVector)){
     stop("input drugVector must be a string vector")
   }
