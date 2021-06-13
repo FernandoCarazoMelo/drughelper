@@ -23,11 +23,11 @@ Drughelper can be installed from CRAN repository:
 
 ### Data  
 
-Data with drugs and synonyms from ChEMBl: `datosChembl.RData`. It is downloaded through `downloadAbsentFile` function.
+Data with drugs and synonyms from ChEMBl: `dhdrugs.RData`. It is downloaded through `downloadAbsentFile` function.
   
 #### Information:
 
-Information of the columns from `datosChembl.RData`:
+Information of the columns from `dhdrugs.RData`:
 
 * **Drug**: Name of each chosen drug.
 * **DrugHelperid**: Identification code created for the project.

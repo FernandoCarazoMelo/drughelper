@@ -8,7 +8,7 @@
 \usage{
 tsv2rdata()
 
-updateTable(datosChembl)
+updateTable(dhdrugs)
 }
 \value{
 Internal outputs
