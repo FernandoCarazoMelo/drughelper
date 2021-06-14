@@ -22,6 +22,7 @@ checkDrugSynonym <- function(drugVector) {
   downloadAbsentFile(dir = tempdir())
   load(paste0(tempdir(), "/dhdrugs.RData"))
 
+
   #DATAFRAME
   daf <- data.frame(x = character(),
                     Approved = character(),
