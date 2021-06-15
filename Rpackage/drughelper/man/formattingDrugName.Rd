@@ -9,6 +9,9 @@ formattingDrugName(DrugName)
 \arguments{
 \item{DrugName}{A string with the name of the drug to be normalized}
 }
+\value{
+A string containing only alphanumeric content of the input drug and capitalized
+}
 \description{
 This function corrects and capitalizes the names of a given vector of drugs.
 }

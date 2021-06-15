@@ -9,6 +9,9 @@ downloadAbsentFile(dir = tempdir())
 \arguments{
 \item{dir}{Name of the directory where data is downloaded}
 }
+\value{
+A dataset of drugs downloaded in current temp directory.
+}
 \description{
 If it has not been downloaded yet, downloads data of drugs
 }

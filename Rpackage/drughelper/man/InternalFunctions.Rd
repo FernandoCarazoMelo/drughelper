@@ -11,7 +11,7 @@ tsv2rdata()
 updateTable(dhdrugs)
 }
 \value{
-Internal outputs
+Internal outputs, called for side effects
 }
 \description{
 Drughelper Internal Functions

@@ -4,7 +4,7 @@
 #' @name InternalFunctions
 #' @import readr
 #' @importFrom utils data
-#' @return Internal outputs
+#' @return Internal outputs, called for side effects
 #'
 
 #' @rdname InternalFunctions

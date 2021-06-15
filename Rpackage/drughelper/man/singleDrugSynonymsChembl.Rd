@@ -8,8 +8,8 @@ A dataset containing all 9021 drugs and a string with its synonyms}
 \format{
   A data frame with 9021 observations on the following 2 variables.
   \describe{
-    \item{\code{Drug}}{a character vector}
-    \item{\code{Drug_synonyms}}{a character vector}
+    \item{\code{Drug}}{a character vector with the name of the drug}
+    \item{\code{Drug_synonyms}}{a character vector with synonyms for each drug}
   }
 }
 \details{
