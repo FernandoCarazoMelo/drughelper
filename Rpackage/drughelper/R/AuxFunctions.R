@@ -11,7 +11,7 @@
 tsv2rdata <- function() {
 
   source("./R/formattingDrugName.R")
-  source("./R/downloadAbsentFile.R")
+  # source("./R/downloadAbsentFile.R")
 
   # DOWNLOAD RDATA FROM GITHUB
   # downloadAbsentFile(dir = tempdir())
