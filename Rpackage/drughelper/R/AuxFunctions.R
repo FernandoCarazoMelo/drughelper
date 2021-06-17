@@ -43,8 +43,6 @@ tsv2rdata <- function() {
 
   dhdrugs <- dhdrugs[,-7]
 
-  #UNIQUE SYNONYMS
-  #vaux = vector auxiliar
   for (k in 1:nrow(dhdrugs)){
 
     vaux <- strsplit(dhdrugs$synonyms[k], ";;;")[[1]]
@@ -53,25 +51,19 @@ tsv2rdata <- function() {
 
   }
 
-  # A continuacion el objetivo es llamar a la funcion ya
-  # creada para que formatee la columna de sinonimos
-  # (quitar espacios y signos de puntuación)
-
   source("../../codeJG/generateDB/formattingSynonymsTable.R")
   dhdrugs <- updateTable(dhdrugs)
 
-  #Introducimos otras columnas como ids u otra información:
-
   dhdrugs$DrugHelper <- paste0("DH0",1:nrow(dhdrugs))
-
-  #Ordenamos las columnas
 
   dhdrugs <- subset(dhdrugs, select = c(8,2,1,4,5,6,7,3))
 
-  # save(dhdrugs, file = "https://github.com/jaaaviergarcia/drughelper/dhdrugs2.RData")
-  # guardar esta tabla en github mediante codigo (esta guardada manualmente)
-}
 
+  # save(dhdrugs, file = paste0(tempdir(), "/dhdrugs.RData"))
+
+
+
+}
 
 
 #' @rdname InternalFunctions
