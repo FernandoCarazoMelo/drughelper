@@ -1,5 +1,4 @@
-#' @name{-package}
-#' @aliases{drughelper}
+#' @name{drughelper}
 #' @aliases{drughelper-package}
 #' @title{drughelper}
 #' @description{
