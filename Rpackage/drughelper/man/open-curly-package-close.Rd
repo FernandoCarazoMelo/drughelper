@@ -6,7 +6,7 @@
 \alias{_PACKAGE}
 \alias{{drughelper}}
 \alias{{drughelper-package}}
-\title{{drughelper: A Grammar of Data Manipulation}}
+\title{{drughelper}}
 \description{
 {
   To learn more about drughelper, start with the vignettes:
