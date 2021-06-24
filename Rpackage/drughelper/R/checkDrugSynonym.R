@@ -54,8 +54,8 @@ checkDrugSynonym <- function(drugVector) {
 
     for (j in 1:length(auxVectorsynonyms)){
 
-        list = unique(strsplit(auxTable$synonyms_formatted[j], split=";;;"))
-        tempDF = rbind(tempDF, data.frame(Id = auxTable$DrugHelper[j], Synonyms = unlist(list)))
+      list = unique(strsplit(auxTable$synonyms_formatted[j], split=";;;"))
+      tempDF = rbind(tempDF, data.frame(Id = auxTable$DrugHelper[j], Synonyms = unlist(list)))
     }
 
     tempDF <- unique(tempDF)
@@ -89,14 +89,19 @@ checkDrugSynonym <- function(drugVector) {
         daf[i, 3] <- tempDF$Id[agrep(drugVector[i], tempDF$Synonyms)][1]
         daf[i, 4] <- dhdrugs$Drug[aux_6][1]
         daf[i, 5] <- dhdrugs$max_phase[aux_6][1]
-        daf[i, 6] <- "Approximate match"
+        daf[i, 6] <- "Approx. match"
 
-        }
+      }
     } else {
 
       daf[i, 4] <- toupper(daf[i, 1])
-      daf[i, 6] <- "No match / clinical phase 0"
+      daf[i, 5] <- "0 or NA"
+      daf[i, 6] <- "No match"
     }
   }
   return(daf)
 }
+
+
+
+
