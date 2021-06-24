@@ -2,11 +2,11 @@
 % Please edit documentation in R/AuxFunctions.R
 \name{InternalFunctions}
 \alias{InternalFunctions}
-\alias{tsv2rdata}
+\alias{gittsv}
 \alias{updateTable}
 \title{Drughelper Internal Functions}
 \usage{
-tsv2rdata()
+gittsv()
 
 updateTable(dhdrugs)
 }
