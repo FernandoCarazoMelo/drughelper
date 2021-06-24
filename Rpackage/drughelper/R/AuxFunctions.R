@@ -8,21 +8,12 @@
 #'
 
 #' @rdname InternalFunctions
-tsv2rdata <- function() {
+gittsv <- function() {
 
-  source("./R/formattingDrugName.R")
-  # source("./R/downloadAbsentFile.R")
 
-  # DOWNLOAD RDATA FROM GITHUB
-  # downloadAbsentFile(dir = tempdir())
-  # dir <-  paste0(tempdir(),"\\dhdrugs.RData")
-  # dhdrugs <- load(file = dir)
-  # data("dhdrugs")
-
-  # DOWNLOADED FROM TSV
   requireNamespace("readr")
   dhdrugs <- read_delim("https://raw.githubusercontent.com/jaaaviergarcia/drughelper/main/dhdrugs.tsv",
-                            "\t", escape_double = FALSE, trim_ws = TRUE)
+                        "\t", escape_double = FALSE, trim_ws = TRUE)
 
   singleDrugSynonymsChembl<-c()
   data("singleDrugSynonymsChembl", envir = environment())
@@ -59,11 +50,8 @@ tsv2rdata <- function() {
   dhdrugs <- subset(dhdrugs, select = c(8,2,1,4,5,6,7,3))
 
 
-  # save(dhdrugs, file = paste0(tempdir(), "/dhdrugs.RData"))
-
-
-
 }
+
 
 
 #' @rdname InternalFunctions
