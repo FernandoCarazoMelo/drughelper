@@ -1,10 +1,11 @@
 Package: drughelper
 Type: Package
 Title: Drug Identification and Drug Name Correction with Automatic Updates
-Version: 0.1.0
-Authors@R: c(person("Javier Garcia", "Developer", role = c("aut", "cre"),
+Version: 0.1.1
+Authors@R: c(person("Fernando Carazo", "Developer", role = c("aut", "cre"),
+                     email = "fcarazo@tecnun.es"),
+             person("Javier Garcia", "Developer", role = "aut",
                      email = "a905125@alumni.unav.es"),
-             person("Fernando Carazo", "Developer", role = "aut"),
              person("Tecnun", role = "cph"))
 Description: Contains a function which identifies and corrects the names of a set of drugs between clinical phases 1-4 with a periodically actualized drug database.
 License: MIT + file LICENSE
@@ -15,7 +16,8 @@ Imports: progress,
 Suggests: knitr,
     rmarkdown,
     BiocGenerics,
-    RUnit
+    RUnit,
+    PharmacoGx
 Encoding: UTF-8
 LazyData: true
 LazyDataCompression: xz
