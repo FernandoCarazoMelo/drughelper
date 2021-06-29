@@ -12,7 +12,8 @@ downloadAbsentFile <- function (dir = tempdir()){
 
     URL <- "https://raw.githubusercontent.com/jaaaviergarcia/drughelper/main/dhdrugs.RData"
     download.file(URL ,destfile = paste0(tempdir(), "/dhdrugs.RData"))
-
+    URL2 <- "https://raw.githubusercontent.com/jaaaviergarcia/drughelper/main/singleDrugSynonymsChembl.rda"
+    download.file(URL2 ,destfile = paste0(tempdir(), "/singleDrugSynonymsChembl.rda"))
   }
 }
 
