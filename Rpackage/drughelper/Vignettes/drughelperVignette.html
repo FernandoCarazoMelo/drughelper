@@ -12,7 +12,7 @@
 
 <meta name="author" content="Javier García &amp; Fernando Carazo" />
 
-<meta name="date" content="2021-06-24" />
+<meta name="date" content="2021-06-25" />
 
 <title>Introduction to drughelper</title>
 
@@ -141,7 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <h1 class="title toc-ignore">Introduction to drughelper</h1>
 <h4 class="author">Javier García &amp; Fernando Carazo</h4>
-<h4 class="date">2021-06-24</h4>
+<h4 class="date">2021-06-25</h4>
 
 
 
@@ -176,10 +176,93 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In this first approach, we have compared four different studies, three of them from the PharmacoGx project and the other one from the BeatAML functional genomic study.</p>
 <p>PharmacoGx is an R package which has data from the cancer cell line encyclopedia (CCLE), the Genomics of Drug Sensitivity Cancer project (GDSC) and the connectivity map (CMAP) from the broad institute. They have 24, 139 and 5 unique drugs, respectively.</p>
 <p>BeatAML is a program which contains different datasets on acute myeloid leukemia (AML). In this case the data used belongs to the drug response dataset, containing 122 unique drugs.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">checkDrugSynonym</span>(vector_CCLE))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            x Approved DrugHelperID Suggested.Synonym Cl.Phase    Matching</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 PD-0325901     TRUE      DH05859      MIRDAMETINIB        2 Exact match</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     17-AAG     TRUE      DH04193      TANESPIMYCIN        3 Exact match</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     AEW541     TRUE      DH07870           AEW-541        1 Exact match</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  Nilotinib     TRUE      DH01297         NILOTINIB        4 Exact match</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 PHA-665752    FALSE         &lt;NA&gt;        PHA-665752  0 or NA    No match</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  lapatinib     TRUE       DH0223         LAPATINIB        4 Exact match</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">checkDrugSynonym</span>(vector_GDSC))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             x Approved DrugHelperID Suggested.Synonym Cl.Phase    Matching</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Doxorubicin     TRUE       DH0619       DOXORUBICIN        4 Exact match</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   etoposide     TRUE       DH0586         ETOPOSIDE        4 Exact match</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Gemcitabine     TRUE       DH0604       GEMCITABINE        4 Exact match</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 Mitomycin-C     TRUE       DH0210         MITOMYCIN        4 Exact match</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 Vinorelbine     TRUE      DH01559       VINORELBINE        4 Exact match</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6   NSC-87877    FALSE         &lt;NA&gt;         NSC-87877  0 or NA    No match</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">checkDrugSynonym</span>(vector_CMAP))</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                      x Approved DrugHelperID Suggested.Synonym Cl.Phase</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 acetylsalicylic acid     TRUE        DH042           ASPIRIN        4</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2        rosiglitazone     TRUE       DH0286     ROSIGLITAZONE        4</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3         alvespimycin     TRUE      DH05770      ALVESPIMYCIN        4</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4           vorinostat     TRUE       DH0182        VORINOSTAT        4</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5         pioglitazone     TRUE       DH0284      PIOGLITAZONE        4</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Matching</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Exact match</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Exact match</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Exact match</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 Exact match</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 Exact match</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">checkDrugSynonym</span>(vBeatAML))</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                       x Approved DrugHelperID Suggested.Synonym Cl.Phase</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 17-AAG (Tanespimycin)     TRUE      DH04193      TANESPIMYCIN        3</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2              A-674563    FALSE         &lt;NA&gt;          A-674563  0 or NA</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3               ABT-737     TRUE      DH07797           ABT 737        1</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4                AT7519     TRUE      DH05915           AT-7519        2</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5               AZD1480     TRUE      DH06030          AZD-1480        2</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  Afatinib (BIBW-2992)     TRUE      DH01656          AFATINIB        4</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Matching</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Exact match</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    No match</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Exact match</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 Exact match</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 Exact match</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 Exact match</span></span></code></pre></div>
 </div>
 <div id="case-2" class="section level3">
 <h3>Case 2:</h3>
 <p>Now a large dataset of 1996 drugs from DrugSniper is compared with the other ones. DrugSniper is a tool to exploit loss-of-function screens, created by the bioengineering department in Tecnun, University of Navarra. The data used is called “Gene Info” and contained data about both approved and investigational drugs targeted to protein inhibition retrieved publicly available in the ChEMBL and DrugBank online repositories.</p>
+<p>The first rows of the output are shown below:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">checkDrugSynonym</span>(vector_GINF))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                     x Approved DrugHelperID   Suggested.Synonym Cl.Phase</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1          Bacitracin     TRUE      DH01845          BACITRACIN        4</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Pyridoxal Phosphate     TRUE      DH05651 PYRIDOXAL PHOSPHATE        2</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3          Phenelzine     TRUE       DH0807          PHENELZINE        4</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4        Pyruvic acid     TRUE      DH05999            PYRUVATE        2</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5          Vigabatrin     TRUE       DH0798          VIGABATRIN        4</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6           L-Alanine     TRUE      DH04053             ALANINE        3</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Matching</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Exact match</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Exact match</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Exact match</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 Exact match</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 Exact match</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 Exact match</span></span></code></pre></div>
+<p>Comparing the matches obtained directly with the matches from drughelper, an increase in the number of coincident drugs in two studies is appreciated. Let’s compare, for example, drugSniper with GDSC database:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Without Drughelper</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>GDSC_GINF <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(vector_GDSC)) {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (vector_GDSC[i] <span class="sc">%in%</span> vector_GINF) {</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    GDSC_GINF <span class="ot">=</span> GDSC_GINF <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># With Drughelper</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>DH_GDSC_GINF <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(table_GDSC)) {</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (table_GDSC<span class="sc">$</span>Suggested.Synonym[i] <span class="sc">%in%</span> table1<span class="sc">$</span>Suggested.Synonym) {</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    DH_GDSC_GINF <span class="ot">=</span> DH_GDSC_GINF <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>GDSC_GINF</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 24</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>DH_GDSC_GINF </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 64</span></span></code></pre></div>
 </div>
 <div id="results" class="section level3">
 <h3>Results</h3>
