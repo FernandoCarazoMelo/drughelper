@@ -1,0 +1,29 @@
+name: Automate python drug table once a month
+
+on: 
+  schedule:
+    - cron: "0 0 1 * *" #Once a month
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner.
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 #install the python needed
+      - name: Install dependencies
+        run: |
+          pip install wheel
+          pip install pandas
+          pip install chembl_webresource_client
+      - name: execute py script # run the chemblTable.py to get the latest data
+        run: |
+          python chemblTable.py
+      - name: Commit & Push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+         commit_message: Written py file
